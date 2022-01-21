@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", g.Groupie)
+	http.HandleFunc("/", g.MainPage)
 
 	http.ListenAndServe("localhost:8080", nil)
 }
