@@ -5,10 +5,12 @@ import (
 	"net/http"
 )
 
-
 func MainPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("static/index.html"))
-	new = Artistes{a: 3,b: "rjfn", c:[]string{"fzer"}}
+	APIRequests()
+
+	
+	new := ArtistStruct{Tab: ArtistTab}
 	tmpl.Execute(w, new)
 
 }

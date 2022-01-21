@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	g "groupie"
 	"net/http"
 )
@@ -14,5 +15,7 @@ type Artistes struct{
 func main() {
 	http.HandleFunc("/", g.MainPage)
 
-	http.ListenAndServe("localhost:8080", nil)
+	fmt.Println("Listening at http://localhost:8000")
+
+	http.ListenAndServe("localhost:8000", nil)
 }
