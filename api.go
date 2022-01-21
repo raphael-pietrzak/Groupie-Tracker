@@ -1,13 +1,15 @@
 package groupie
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
+
 type ArtistStruct struct {
-	tab []Artist
+	Tab []Artist
 }
 
 type Artist struct {
@@ -39,9 +41,11 @@ type Relations struct {
 	Dateslocations DatesLocations `json:"dateslocations"`
 }
 
+var ArtistTab []Artist
+
 func APIRequests() {
 
-	req, err := http.Get("https://groupietrackers.herokuapp.com/api")
+	req, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 
 	if err != nil {
 		fmt.Println(err)
@@ -52,4 +56,6 @@ func APIRequests() {
 	if err2 != nil {
 		fmt.Println(err2)
 	}
+
+	json.Unmarshal(d, &ArtistTab)
 }
