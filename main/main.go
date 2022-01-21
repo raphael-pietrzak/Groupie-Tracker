@@ -5,6 +5,12 @@ import (
 	"net/http"
 )
 
+type Artistes struct{
+	a int
+	b string
+	c []string
+}
+
 func main() {
 	http.HandleFunc("/", g.MainPage)
 

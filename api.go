@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+
 type ArtistStruct struct {
 	Tab []Artist
 }
@@ -18,6 +19,26 @@ type Artist struct {
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
+}
+
+type Locations struct {
+	Id        int      `json:"id"`
+	Locations []string `json:"locations"`
+	Dates     string   `json:"dates"`
+}
+
+type Date struct {
+	Id    int      `json:"id"`
+	Dates []string `json:"dates"`
+}
+type DatesLocations struct {
+	Location string   `json:"locations"`
+	Date     []string `json:"dates"`
+}
+
+type Relations struct {
+	Id             int            `json:"id"`
+	Dateslocations DatesLocations `json:"dateslocations"`
 }
 
 var ArtistTab []Artist
@@ -35,5 +56,6 @@ func APIRequests() {
 	if err2 != nil {
 		fmt.Println(err2)
 	}
+
 	json.Unmarshal(d, &ArtistTab)
 }

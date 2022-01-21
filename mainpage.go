@@ -6,10 +6,11 @@ import (
 )
 
 func MainPage(w http.ResponseWriter, r *http.Request) {
-
+	tmpl := template.Must(template.ParseFiles("static/index.html"))
 	APIRequests()
 
-	tmpl := template.Must(template.ParseFiles("static/index.html"))
-	new := ArtistStruct{Tab: ArtistTab,}
+	
+	new := ArtistStruct{Tab: ArtistTab}
 	tmpl.Execute(w, new)
+
 }
