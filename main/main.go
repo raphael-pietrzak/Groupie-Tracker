@@ -8,5 +8,5 @@ import (
 func main() {
 	http.HandleFunc("/", g.MainPage)
 
-	http.ListenAndServe("localhost:8080", nil)
+	http.ListenAndServe("localhost:8000", nil)
 }
