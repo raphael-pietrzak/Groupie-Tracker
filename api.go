@@ -1,10 +1,12 @@
 package groupie
 
 import (
+<<<<<<< HEAD
 	//"enconding/json"
+=======
+>>>>>>> 1c15842413d449bcedea0f07b768a934386d0ff3
 	"fmt"
 	"io/ioutil"
-	"io/outil"
 	"net/http"
 )
 
@@ -21,6 +23,26 @@ type Artist struct {
 	FirstAlbum   string   `json:"firstAlbum"`
 }
 
+type Locations struct {
+	Id        int      `json:"id"`
+	Locations []string `json:"locations"`
+	Dates     string   `json:"dates"`
+}
+
+type Date struct {
+	Id    int      `json:"id"`
+	Dates []string `json:"dates"`
+}
+type DatesLocations struct {
+	Location string   `json:"locations"`
+	Date     []string `json:"dates"`
+}
+
+type Relations struct {
+	Id             int            `json:"id"`
+	Dateslocations DatesLocations `json:"dateslocations"`
+}
+
 func APIRequests() {
 
 	req, err := http.Get("https://groupietrackers.herokuapp.com/api")
@@ -34,5 +56,4 @@ func APIRequests() {
 	if err2 != nil {
 		fmt.Println(err2)
 	}
-
 }
