@@ -1,10 +1,12 @@
 package main
 
-import "net/http"
-
-
+import (
+	g "groupie"
+	"net/http"
+)
 
 func main() {
-	http.HandleFunc("/", Groupie)
-	http.ListenAndServe()
+	http.HandleFunc("/", g.Groupie)
+
+	http.ListenAndServe("localhost:8080", nil)
 }
