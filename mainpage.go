@@ -6,7 +6,7 @@ import (
 )
 
 func MainPage(w http.ResponseWriter, r *http.Request) {
-	
+
 	APIRequests()
 
 	tmpl := template.Must(template.ParseFiles("static/index.html"))
