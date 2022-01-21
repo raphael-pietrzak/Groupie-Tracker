@@ -14,6 +14,7 @@ type Artistes struct{
 
 func main() {
 	http.HandleFunc("/", g.MainPage)
+	
 
 	fmt.Println("Listening at http://localhost:8000")
 
