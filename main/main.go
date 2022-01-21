@@ -5,6 +5,6 @@ import "net/http"
 
 
 func main() {
-	http.HandleFunc("/", Groupie)
-	http.ListenAndServe("http")
+	http.HandleFunc("/", g.Groupie)
+	http.ListenAndServe()
 }
