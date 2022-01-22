@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-type Artistes struct{
+type Artistes struct {
 	a int
 	b string
 	c []string
@@ -15,6 +15,12 @@ type Artistes struct{
 func main() {
 	http.HandleFunc("/", g.MainPage)
 	
+
+	fmt.Println("Listening at http://localhost:8000")
+
+	//Show #CSS
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	fmt.Println("Listening at http://localhost:8000")
 
