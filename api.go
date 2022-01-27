@@ -7,9 +7,8 @@ import (
 	"net/http"
 )
 
-
 type ArtistStruct struct {
-	Tab []Artist
+	Tab  []Artist
 }
 
 type Artist struct {
@@ -19,6 +18,7 @@ type Artist struct {
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
+	Locations    string   `json:"locations"`
 }
 
 type Locations struct {
@@ -42,6 +42,7 @@ type Relations struct {
 }
 
 var ArtistTab []Artist
+var LocationTab []Artist
 
 func APIRequests() {
 
@@ -58,4 +59,21 @@ func APIRequests() {
 	}
 
 	json.Unmarshal(d, &ArtistTab)
+}
+
+func APIRequests2() {
+	req, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	d, err2 := ioutil.ReadAll(req.Body)
+
+	if err2 != nil {
+		fmt.Println(err2)
+	}
+
+	json.Unmarshal(d, &LocationTab)
+	
 }

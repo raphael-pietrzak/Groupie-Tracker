@@ -1,7 +1,6 @@
 package groupie
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -16,8 +15,11 @@ func MainPage(w http.ResponseWriter, r *http.Request) {
 
 }
 
-
 func Artiste(w http.ResponseWriter, r *http.Request){
-	fmt.Println("eeeeeee")
-	http.ServeFile(w, r, "tmpl/artist.html")
+	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
+	APIRequests()
+
+	new := ArtistStruct{Tab: ArtistTab}
+	tmpl.Execute(w, new)
 }
+
