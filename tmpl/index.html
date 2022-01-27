@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <link rel="stylesheet" href="static/index.css">
 
     <title>Document</title>
 </head>
-<body>
-    {{ range .Tab }}
 
-    <div class="card">
-        <h1> {{ .Name }} </h1>
+<body>
+    <div class="head">
+        <h1>Artistes</h1>
     </div>
 
-    {{ end }}
+    <div class="cards">
+        {{ range .Tab }}
+        <div class="card">
+            <img src="{{ .Image }}" class="image">
+            <h1>{{ .Name }}</h1>
+            <p class="para"> {{range .Members}}{{ . }} <br> {{ end }} <br> {{ .CreationDate }} <br> {{ .FirstAlbum }}
+            </p>
+        </div>
+        {{ end }}
+    </div>
+
+
+
 </body>
 
 </html>
+<!--Id           int      `json:"id"`
+	Image        string   `json:"image"`
+	Name         string   `json:"name"`
+	Members      []string `json:"members"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`__-->
