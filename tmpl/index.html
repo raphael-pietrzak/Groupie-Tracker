@@ -18,14 +18,19 @@
     </div>
 
     <div class="cards">
+
         {{ range .Tab }}
-        <div class="card">
+        <form action="/artist" method="post">
+            <button type="submit" class="card">
             <img src="{{ .Image }}" class="image">
-            <h1>{{ .Name }}</h1>
+            <h1> {{.Name}} </h1>
             <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{ .CreationDate }} <br> <br>   First Album <br>{{ .FirstAlbum }}
             </p>
-        </div>
+            </button>
+        </form>
         {{ end }}
+      
+        
     </div>
 
 
@@ -39,3 +44,5 @@
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`__-->
+
+    

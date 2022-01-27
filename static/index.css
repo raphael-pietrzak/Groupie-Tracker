@@ -4,28 +4,29 @@
   text-align: center;
   height: 300px;
   font-size: 50px;
-
 }
+
 .cards{
   font-family: System-ui;
 
   display:grid;
-  place-items: center;
+  /* place-items: center; */
   grid-template-columns: 1fr 1fr 1fr;
   text-align:center;
   gap: 30px;
-  
 }
+
 .image{
+  width: 100%;
   border-top-left-radius: 5%;
   border-top-right-radius: 5%;
-  width: 100%;
   /*height: 50%;*/
 }
 
 .para{
   visibility: hidden;
 }
+
 .card {
   border-radius: 5%;
   border: rgba(0,0,0,0.2);
@@ -33,7 +34,9 @@
   transition: 0.3s;
   width: 400px;
   max-height: 500px;
+  background-color: #fff;
 }
+
 .card:hover .para{
   visibility: visible;
 }
@@ -43,5 +46,16 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   width: 400px;
   max-height: 900px;
-
 }
+
+/* .blocInvisible{
+  width: 400px;
+  max-height: 500px;
+  visibility: hidden;
+}
+
+.blocInvisible:hover{
+  width: 400px;
+  max-height: 900px;
+  visibility: hidden;
+} */

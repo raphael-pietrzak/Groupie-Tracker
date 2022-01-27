@@ -14,6 +14,7 @@ type Artistes struct {
 
 func main() {
 	http.HandleFunc("/", g.MainPage)
+	http.HandleFunc("/artist", g.Artiste)
 
 	//Show #CSS
 	fs := http.FileServer(http.Dir("./static"))
