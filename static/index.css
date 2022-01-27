@@ -1,19 +1,36 @@
-
+body{
+  margin: 0;
+}
 .head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
   font-family: System-ui;
   text-align: center;
-  height: 300px;
   font-size: 50px;
+  color: #fff;
+  background-color: rgb(42,44,50);
+}
+
+.title{
+  margin-top: -150px;
+}
+.name{
+  margin: auto;
+  font-size: 40px;
+
 }
 
 .cards{
   font-family: System-ui;
-
   display:grid;
-  /* place-items: center; */
+  place-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   text-align:center;
   gap: 30px;
+  margin-top: -150px;
 }
 
 .image{
@@ -27,7 +44,6 @@
 .para{
   visibility: hidden;
 }
-
 .card {
   border-radius: 5%;
   border: rgba(0,0,0,0.2);
