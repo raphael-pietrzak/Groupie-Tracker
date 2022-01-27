@@ -1,39 +1,48 @@
-
+body{
+  margin: 0;
+}
 .head{
+  width: 100%;
+  height: 300px;
   font-family: System-ui;
   text-align: center;
-  height: 300px;
   font-size: 50px;
-
+  color: #fff;
+  background-color: rgb(42,44,50);
+}
+h1{
+  margin: 0;
 }
 .cards{
   font-family: System-ui;
-
   display:grid;
-  place-items: center;
+  /* place-items: center; */
   grid-template-columns: 1fr 1fr 1fr;
   text-align:center;
   gap: 30px;
-  
 }
+
 .image{
+  width: 100%;
   border-top-left-radius: 5%;
   border-top-right-radius: 5%;
-  width: 300px;
-  height: 300px;
+  /*height: 50%;*/
 }
 
 .para{
   visibility: hidden;
 }
 .card {
+  margin:auto;
   border-radius: 5%;
   border: rgba(0,0,0,0.2);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 350px;
-  height: 500px;
+  width: 400px;
+  max-height: 500px;
+  background-color: #fff;
 }
+
 .card:hover .para{
   visibility: visible;
 }
@@ -41,7 +50,18 @@
 .card:hover{
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  width: 350px;
-  height: 600px;
-
+  width: 400px;
+  max-height: 900px;
 }
+
+/* .blocInvisible{
+  width: 400px;
+  max-height: 500px;
+  visibility: hidden;
+}
+
+.blocInvisible:hover{
+  width: 400px;
+  max-height: 900px;
+  visibility: hidden;
+} */

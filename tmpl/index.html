@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <link rel="stylesheet" href="static/index.css">
 
     <title>Document</title>
@@ -18,13 +16,17 @@
     </div>
 
     <div class="cards">
+
         {{ range .Tab }}
-        <div class="card">
-            <img src="{{ .Image }}" class="image">
-            <h1>{{ .Name }}</h1>
-            <p class="para"> {{range .Members}}{{ . }} <br> {{ end }} <br> {{ .CreationDate }} <br> {{ .FirstAlbum }}
-            </p>
-        </div>
+        <form action="/artist" method="post">
+            <button type="submit" class="card">
+                <img src="{{ .Image }}" class="image">
+                <h1> {{.Name}} </h1>
+                <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
+                    .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
+                </p>
+            </button>
+        </form>
         {{ end }}
     </div>
 
