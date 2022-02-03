@@ -18,7 +18,7 @@
     <div class="cards">
         {{ range .Tab }}
         <form action="/artist" method="post">
-            <button type="submit" class="card">
+            <button type="submit" class="card" value={{.Locations}} name="w">
                 <img src="{{ .Image }}" class="image">
                 <h1 class="name"> {{.Name}} </h1>
                 <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
@@ -33,7 +33,7 @@
 
 </body>
 
-</html>
+</html> 
 <!--Id           int      `json:"id"`
 	Image        string   `json:"image"`
 	Name         string   `json:"name"`
