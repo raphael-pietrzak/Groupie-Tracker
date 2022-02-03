@@ -17,6 +17,7 @@ var variable map[string][]string
 type ArtistStruct struct {
 	Tab  []Artist
 	Tab2 map[string][]string
+	// Tab3 Locations
 }
 
 type Artist struct {
@@ -82,7 +83,7 @@ func APIRequests2(link string) {
 	// Relier ça... 
 
 	fmt.Println(LocationsTab.Id)
-
+	fmt.Println(LocationsTab.Locations)
 
 	req2, err := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
