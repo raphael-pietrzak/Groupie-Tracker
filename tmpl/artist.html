@@ -7,9 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    {{range .Tab}}
-    {{.Locations}}
-    {{end}}
-</body>
-</html>
+    <p> Dates des concerts : </p>
 
+   <!-- {{range .Tab2}}
+   {{.}}
+   {{end}} -->
+
+   {{ range $Location, $DatesLoc := . }}
+   <li><strong>{{ $DatesLoc }}</strong>: {{ $Location }}</li>
+    {{ end }}
+
+</body>
+</html> 
+j'ai
+<!-- {{ range $key, $value := . }}
+   <li><strong>{{ $key }}</strong>: {{ $value }}</li>
+{{ end }} -->
