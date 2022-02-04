@@ -30,6 +30,7 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 
 	new := ArtistStruct{Tab2: variable}
 	tmpl.Execute(w, new)
+
 }
 
 // func Location(w http.ResponseWriter, r *http.Request) {
