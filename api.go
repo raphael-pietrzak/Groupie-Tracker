@@ -17,6 +17,7 @@ var variable map[string][]string
 type ArtistStruct struct {
 	Tab  []Artist
 	Tab2 map[string][]string
+	city []string
 	// Tab3 Locations
 }
 
@@ -101,13 +102,10 @@ func APIRequests2(link string) {
 
 
 	// Avec ça !!
-	fmt.Println(Relation)
 	for _, v := range Relation.Index {
 		if v.Id == LocationsTab.Id{
 			variable = v.DatesLoc
-		} else {
-			fmt.Println("Erreur")
-		}
+		} 
 	}
 }
 

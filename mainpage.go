@@ -28,7 +28,7 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	APIRequests2(link_loc)
 
 
-	new := ArtistStruct{Tab2: variable}
+	new := ArtistStruct{Tab2: variable, city: LocationsTab.Locations}
 	tmpl.Execute(w, new)
 }
 

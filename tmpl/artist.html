@@ -9,17 +9,16 @@
 <body>
     <p> Dates des concerts : </p>
 
-   <!-- {{range .Tab2}}
-   {{.}}
-   {{end}} -->
+    {{range .Tab2}}
+        {{range .city}}
+        {{.}}
+        {{end}}
+        {{.}}
+    {{end}}
 
-   {{ range $Location, $DatesLoc := . }}
-   <li><strong>{{ $DatesLoc }}</strong>: {{ $Location }}</li>
-    {{ end }}
 
 </body>
 </html> 
-j'ai
 <!-- {{ range $key, $value := . }}
    <li><strong>{{ $key }}</strong>: {{ $value }}</li>
 {{ end }} -->
