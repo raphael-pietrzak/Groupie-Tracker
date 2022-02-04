@@ -11,8 +11,15 @@
 </head>
 
 <body>
+
     <div class="head">
         <h1 class="title">Artistes</h1>
+        <div class="form-container">
+            <form class="form">
+                <input id="searchBar" name="searchBar" type="text" class="input" placeholder="search..."/>
+            </form>
+            <ul id="charactersList"></ul>
+        </div>
     </div>
 
     <div class="cards">
@@ -29,7 +36,9 @@
         {{ end }}
     </div>
 
+    
 
+    <script src="script.js"></script>
 
 </body>
 

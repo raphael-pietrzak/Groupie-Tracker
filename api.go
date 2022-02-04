@@ -16,8 +16,8 @@ var variable map[string][]string
 
 type ArtistStruct struct {
 	Tab  []Artist
-	Tab2 map[string][]string
-	// Tab3 Relations
+	Tab2 []string
+	// Tab3 Locations
 }
 
 type Artist struct {
@@ -33,7 +33,7 @@ type Artist struct {
 
 type Locations struct {
 	Id        int      `json:"id"`
-	LocationsMap []string `json:"locations"`
+	Locations []string `json:"locations"`
 	Dates     string   `json:"dates"`
 }
 
@@ -83,7 +83,7 @@ func APIRequests2(link string) {
 	// Relier ça... 
 
 	fmt.Println(LocationsTab.Id)
-	fmt.Println(LocationsTab.LocationsMap)
+	fmt.Println(LocationsTab.Locations)
 
 	req2, err := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
@@ -105,8 +105,9 @@ func APIRequests2(link string) {
 	for _, v := range Relation.Index {
 		if v.Id == LocationsTab.Id{
 			variable = v.DatesLoc
-		} else {
-			fmt.Println("Erreur")
 		}
 	}
 }
+
+
+

@@ -1,6 +1,7 @@
 body{
   margin: 0;
 }
+
 .head{
   display: flex;
   justify-content: center;
@@ -12,15 +13,19 @@ body{
   font-size: 50px;
   color: #fff;
   background-color: rgb(42,44,50);
+
+}
+
+.form-container{
+  /* Barre de recherches */
 }
 
 .title{
   margin-top: -150px;
 }
-.name{
-  margin: auto;
+.name {
+  padding: 8px;
   font-size: 40px;
-
 }
 
 .cards{
@@ -37,7 +42,6 @@ body{
   width: 100%;
   border-top-left-radius: 5%;
   border-top-right-radius: 5%;
-  /* border-radius: 50%; */
   /*height: 50%;*/
 }
 

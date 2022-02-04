@@ -7,15 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Dates des concerts: </h1>
+    <h1> Dates des concerts : </h1>
 
-    {{ range .Tab2 }}
-    {{ range $key, $value := . }}
-    <li><strong>{{ $key }}</strong>: {{ $value }}</li>
-    {{ end }}
-    {{ end }} <br> <br>
+   {{range .Tab2}}
+   {{ . }}
+   <br> 
+   {{end}}
 
-    {{ .Tab2 }}
+   <!-- {{ range $Location, $DatesLoc := . }}
+   <li><strong>{{ $DatesLoc }}</strong>: {{ $Location }}</li>
+    {{ end }} -->
 
 </body>
 </html> 
@@ -23,7 +24,3 @@
 <!-- {{ range $key, $value := . }}
    <li><strong>{{ $key }}</strong>: {{ $value }}</li>
 {{ end }} -->
-
- <!-- {{ range $Location, $DatesLoc := . }}
-   <li><strong>{{ $DatesLoc }}</strong>: {{ $Location }}</li>
-    {{ end }} -->

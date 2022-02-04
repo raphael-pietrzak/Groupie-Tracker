@@ -27,10 +27,24 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
 	APIRequests2(link_loc)
 
+	CiDa := [][]string{}
+	aa := []string{}
+	for key, v := range variable {
+		aa = []string{}
+		aa = append(aa, key)
+		CiDa = append(CiDa, aa)
+		CiDa = append(CiDa, v)
+		CiDa = append(CiDa, []string{" "})
+	}
+	aa = []string{}
+	for i := 0; i < len(CiDa); i++ {
+		for j := len(CiDa[i])-1; j >= 0 ; j-- {
+			aa = append(aa, CiDa[i][j])
+		}
+	}
 
-	new := ArtistStruct{Tab2: variable}
+	new := ArtistStruct{Tab2: aa}
 	tmpl.Execute(w, new)
-
 }
 
 // func Location(w http.ResponseWriter, r *http.Request) {
@@ -42,7 +56,6 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 
 // 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
 // 	APIRequests2(link_loc)
-
 
 // 	new := ArtistStruct{Tab3: LocationsTab}
 // 	tmpl.Execute(w, new)
