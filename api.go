@@ -16,7 +16,8 @@ var variable map[string][]string
 
 type ArtistStruct struct {
 	Tab  []Artist
-	Tab2 []string
+	// Tab2 []string
+	Tab2 map[string][]string
 	// Tab3 Locations
 }
 
