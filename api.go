@@ -7,7 +7,6 @@ import (
 	"net/http"
 )
 
-
 type ArtistStruct struct {
 	Tab []Artist
 }
@@ -45,7 +44,7 @@ var ArtistTab []Artist
 
 func APIRequests() {
 
-	req, err := http.Get("https://groupietrackers.herokuapp.com/api")
+	req, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 
 	if err != nil {
 		fmt.Println(err)
