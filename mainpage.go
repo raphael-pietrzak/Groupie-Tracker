@@ -26,9 +26,21 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 
 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
 	APIRequests2(link_loc)
+	ttt := [][]string{}
+	for _, v := range variable {
+		ttt = append(ttt, v)
+	}
+	fmt.Println("loc",LocationsTab.Locations)
+	fmt.Println("ttt",ttt)
+	vvv := CityDates{Tabe: ttt, City:LocationsTab.Locations }
+	aaa := [][]string
+	for i := 0; i < len(vvv.Tabe); i++ {
+		aaa = append(aaa, []string)
+		aaa[i] = append(aaa[i],vvv.City[i])
+		aaa[i] = append(aaa[i],vvv.Tabe[i])
 
-
-	new := ArtistStruct{Tab2: variable, city: LocationsTab.Locations}
+	}
+	new := ArtistStruct{Tab2: vvv}
 	tmpl.Execute(w, new)
 }
 
@@ -41,7 +53,6 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 
 // 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
 // 	APIRequests2(link_loc)
-
 
 // 	new := ArtistStruct{Tab3: LocationsTab}
 // 	tmpl.Execute(w, new)
