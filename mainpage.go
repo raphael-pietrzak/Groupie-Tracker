@@ -32,7 +32,6 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 		city := strings.Title((strings.Replace(split[0], "_", " ", -1)))
 		country := strings.Title((strings.Replace(split[1], "_", " ", -1)))
 		formattedConcertLocations[city+", "+country] = v
-
 	}
 	new := ArtistStruct{Tab2: formattedConcertLocations}
 	tmpl.Execute(w, new)
