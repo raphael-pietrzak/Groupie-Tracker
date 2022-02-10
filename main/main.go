@@ -1,4 +1,4 @@
- package main
+package main
 
 import (
 	"fmt"
@@ -17,6 +17,7 @@ func main() {
 
 	http.HandleFunc("/", g.MainPage)
 	http.HandleFunc("/artist", g.Artiste)
+	http.HandleFunc("/search", g.Search)
 
 	//Show #CSS
 	fs := http.FileServer(http.Dir("./static"))
@@ -25,18 +26,3 @@ func main() {
 	fmt.Println("Listening at http://localhost:5500")
 	http.ListenAndServe("localhost:5500", nil)
 }
-
-
-// func main() {
-// 	r := mux.NewRouter()
-
-// 	r.HandleFunc("/", g.MainPage).Methods("GET")
-// 	r.HandleFunc("/artist", g.Artiste).Methods("GET")
-
-// 	//Show #CSS
-// 	fs := http.FileServer(http.Dir("./static"))
-// 	http.Handle("/static/", http.StripPrefix("/static/", fs))
-
-// 	fmt.Println("Listening at http://localhost:5500")
-// 	http.ListenAndServe("localhost:5500", r)
-// }
