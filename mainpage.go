@@ -32,21 +32,7 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 		city := strings.Title((strings.Replace(split[0], "_", " ", -1)))
 		country := strings.Title((strings.Replace(split[1], "_", " ", -1)))
 		formattedConcertLocations[city+", "+country] = v
-
 	}
 	new := ArtistStruct{Tab2: formattedConcertLocations}
 	tmpl.Execute(w, new)
-}
-
-func Search(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		fmt.Fprintf(w, "ParseForm() err: %v", err)
-		return
-	}
-	search := r.Form.Get("searchBar")
-	for _, v := range ArtistTab {
-		if strings.Contains(v.Name, search) {
-			fmt.Println(v.Name)
-		}
-	}
 }

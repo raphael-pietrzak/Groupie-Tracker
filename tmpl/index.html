@@ -6,38 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style.css">
-    <script src="script.js"></script>
-
+    <script src="static/script.js"></script>
 
     <title>Document</title>
 </head>
 
 <body>
-
     <div class="head">
         <h1 class="title">Artistes</h1> <br>
         <div class="nav">
-            <input onkeyup="search()" id="searchBar" name="searchBar" type="text" class="input" placeholder="search..." />
-            div.push()
+            <input onkeyup="search()" id="searchBar" type="text" class="input" placeholder="Search" />
         </div>
 
     </div>
-
     <div class="cards">
         {{ range .Tab }}
         <form action="/artist" method="post">
-            <button type="submit" class="card" value={{.Locations}} name="w">
-                <img src="{{ .Image }}" class="image">
-                <h1 class="name"> {{.Name}} </h1>
-                <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
-                    .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
-                </p>
+            <button class="test">
+                <div class="card">
+                    <img src="{{ .Image }}" class="image">
+                    <p class="name">{{.Name}}</p>
+                </div>
             </button>
         </form>
-        {{ end }}
-
+        {{end}}
     </div>
-
+    <div id="root"></div>
 </body>
 
 </html>
