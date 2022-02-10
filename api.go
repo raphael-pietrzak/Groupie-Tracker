@@ -17,11 +17,7 @@ var tableau []ArtistStruct
 
 type ArtistStruct struct {
 	Tab  []Artist
-	Tab2 []CityDates
-}
-type CityDates struct {
-	Tabe [][]string
-	City []string
+	Tab2 map[string][]string
 }
 
 type Artist struct {
@@ -84,7 +80,6 @@ func APIRequests2(link string) {
 	json.Unmarshal(d, &LocationsTab)
 
 
-	// Relier ça... 
 
 	fmt.Println(LocationsTab.Id)
 	fmt.Println(LocationsTab.Locations)
@@ -103,12 +98,11 @@ func APIRequests2(link string) {
 	}
 	json.Unmarshal(d2, &Relation)
 
-
-	// Avec ça !!
+	fmt.Println(Relation)
 	for _, v := range Relation.Index {
 		if v.Id == LocationsTab.Id{
 			variable = v.DatesLoc
-		} 
+		}
 	}
 }
 
