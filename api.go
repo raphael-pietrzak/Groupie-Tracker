@@ -81,10 +81,6 @@ func APIRequests2(link string) {
 	json.Unmarshal(d, &LocationsTab)
 
 
-	// Relier ça... 
-
-	fmt.Println(LocationsTab.Id)
-	fmt.Println(LocationsTab.Locations)
 
 	req2, err := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
@@ -99,10 +95,6 @@ func APIRequests2(link string) {
 		fmt.Println(err2)
 	}
 	json.Unmarshal(d2, &Relation)
-
-
-	// Avec ça !!
-	fmt.Println(Relation)
 	for _, v := range Relation.Index {
 		if v.Id == LocationsTab.Id{
 			variable = v.DatesLoc

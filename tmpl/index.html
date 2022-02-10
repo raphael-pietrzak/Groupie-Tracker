@@ -6,19 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
 
     <title>Document</title>
 </head>
 
 <body>
-
     <div class="head">
         <h1 class="title">Artistes</h1> <br>
         <div class="nav">
-            <input id="searchBar" name="searchBar" type="text" class="input" placeholder="search..." action="/search"/>
+            <input onkeyup="search()" id="searchBar" name="searchBar" type="text" class="input" placeholder="search..." />
         </div>
     </div>
-
     <div class="cards">
         {{ range .Tab }}
         <form action="/artist" method="post">
@@ -32,8 +31,7 @@
         </form>
         {{ end }}
     </div>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
 </body>
 
 </html> 
