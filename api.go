@@ -39,7 +39,7 @@ type Locations struct {
 }
 
 type Relations struct {
-	Index []Relationnement `json:"index`
+	Index []Relationnement `json:"index"`
 }
 
 type Relationnement struct {

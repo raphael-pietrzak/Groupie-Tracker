@@ -2,6 +2,31 @@ body{
   margin: 0;
 }
 
+.options{
+  width: 200px;
+  /* border: 1px solid silver; */
+  border-radius: 2em;
+  
+}
+
+.tickValue{
+  display: flex;
+  margin-left: 4px;
+}
+
+.numMembers{
+  flex: 1;
+}
+
+.slider {
+  width: 150%;
+  margin: auto;
+  cursor: grab;
+}
+.dropdown-content {
+  width: 500px;
+}
+
 .head{
   display: flex;
   justify-content: center;
@@ -72,6 +97,12 @@ body{
   max-height: 900px;
 }
 
+.test {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 /* .blocInvisible{
   width: 400px;
   max-height: 500px;
@@ -83,3 +114,42 @@ body{
   max-height: 900px;
   visibility: hidden;
 } */
+
+.dropbtn {
+  background-color: rgb(42, 44, 49);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: black;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: rgb(207, 204, 204);}
+
+.show {display: block;}

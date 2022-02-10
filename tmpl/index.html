@@ -6,12 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style.css">
-    <script src="static/script.js"></script>
+    <script src="static/script.js"></script> 
 
     <title>Document</title>
 </head>
 
 <body>
+    <div class="filter">
+        <button onclick="searchFilter()" class="dropbtn">Filtre</button>
+        <div id="myDropdown" class="dropdown-content">
+          <p>Creation Date</p>
+          <p>First Album Date</p >
+          <p>Members</p>
+            <div class="options">   
+                <input class="slider" type="range" min="1" max="8" step="1" list="steplist">
+                <datalist id="steplist" >
+                    <option>1</option> 
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option> 
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option> 
+                    <option>8</option>
+                </datalist>
+                <div class="tickValue">
+                    <span class="numMembers"> 1 </span>
+                    <span class="numMembers"> 2 </span>
+                    <span class="numMembers"> 3 </span>
+                    <span class="numMembers"> 4 </span>
+                    <span class="numMembers"> 5 </span>
+                    <span class="numMembers"> 6 </span>
+                    <span class="numMembers"> 7 </span>
+                    <span class="numMembers"> 8 </span>
+                </div>
+            </div>
+          <p>Concert Locations</p>
+        </div>
+    </div>
     <div class="head">
         <h1 class="title">Artistes</h1> <br>
         <div class="nav">
@@ -21,12 +53,14 @@
     <div class="cards">
         {{ range .Tab }}
         <form action="/artist" method="post">
-            <button type="submit" class="card" value={{.Locations}} name="w">
-                <img src="{{ .Image }}" class="image">
-                <h1 class="name"> {{.Name}} </h1>
-                <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
-                    .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
-                </p>
+            <button type="submit" class="test" value={{.Locations}} name="w">
+                <div class="card">
+                    <img src="{{ .Image }}" class="image">
+                    <h1 class="name"> {{.Name}} </h1>
+                    <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
+                        .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
+                    </p>
+                </div>
             </button>
         </form>
         {{ end }}
@@ -35,3 +69,7 @@
 </body>
 
 </html> 
+
+
+
+
