@@ -1,5 +1,3 @@
-console.log(art)
-
 function search() {
     let art = document.getElementsByClassName("test")
     let search_input = document.getElementById("searchBar").value;
@@ -11,6 +9,15 @@ function search() {
             art[i].style.display = 'none';
         }
     }
+}
+function dateCreation_filter() {
+  let creation = document.getElementById("dateCreation").value;
+  console.log(creation)
+}
+
+function firstAlb_filter() {
+  let album = document.getElementById("FirstAlb").value;
+  console.log(album)
 }
 
 function searchFilter() {
