@@ -186,3 +186,11 @@ body{
   background: none;
 }
 
+.no-margin {
+  margin: 2px;
+}
+
+h2{
+  margin-bottom: -10px;
+}
+

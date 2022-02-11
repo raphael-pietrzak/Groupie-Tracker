@@ -1,15 +1,23 @@
+
+// membersSearch
+// creationDateSearch
+// searchFirstAlbum
+
 function search() {
-    let art = document.getElementsByClassName("test")
+    let art = document.getElementsByClassName("test");
     let search_input = document.getElementById("searchBar").value;
     for (i = 0; i < art.length; i++) {
-        console.log(art[i].innerHTML)
-        if  (art[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
-            art[i].style.display = 'block';
-        } else {
-            art[i].style.display = 'none';
-        }
+      let minusMembers = art[i].innerHTML.toLowerCase().replace('','');
+      minusMembers = minusMembers.replace('members','');
+      console.log(minusMembers)
+      if (minusMembers.toLowerCase().includes(search_input.toLowerCase())) {
+          art[i].style.display = 'block';
+      } else {
+          art[i].style.display = 'none';
+      }
     }
 }
+
 function dateCreation_filter() {
   let creation = document.getElementById("dateCreation").value;
   console.log(creation)
