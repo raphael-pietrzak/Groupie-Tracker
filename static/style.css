@@ -18,7 +18,7 @@ body{
 }
 
 .slider {
-  width: 150%;
+  width: 500px;
   margin: auto;
   cursor: grab;
 }
