@@ -98,56 +98,12 @@ body{
   width: 400px;
 }
 
-
-/* .image{
-  width: 100%;
-  border-top-left-radius: 5%;
-  border-top-right-radius: 5%;
-  /* border-radius: 50%; */
-  /*height: 50%;*/
-/* } */
-/* 
-.para{
-  visibility: hidden;
-}
-.card {
-  border-radius: 5%;
-  border: rgba(0,0,0,0.2);
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 400px;
-  max-height: 500px;
-  background-color: #fff;
-}
-
-.card:hover .para{
-  visibility: visible;
-}
-
-.card:hover{
-  cursor: pointer;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  width: 400px;
-  max-height: 900px;
-} */ 
-
 .test {
   padding: 0;
   border: none;
   background: none;
 }
 
-/* .blocInvisible{
-  width: 400px;
-  max-height: 500px;
-  visibility: hidden;
-}
-
-.blocInvisible:hover{
-  width: 400px;
-  max-height: 900px;
-  visibility: hidden;
-} */
 
 .dropbtn {
   background-color: rgb(42, 44, 49);
