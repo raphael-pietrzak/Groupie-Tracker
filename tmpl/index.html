@@ -58,7 +58,8 @@
     </div>
     <div class="cards">
         {{ range .Tab }}
-                <button type="submit" value={{.Locations}} name="w" action="/artist" method="post" class="test">  
+            <form action="/artist" class="test">
+                <button type="submit" value={{.Locations}} name="w"  method="post" class="borderCards">  
                     <div class="card">
                         <img src="{{ .Image }}" class="image">
                         <p class="name"> {{.Name}} </p>
@@ -67,6 +68,7 @@
                         </p>
                     </div>
                 </button>
+            </form>
         {{end}}
     </div>
 </body>

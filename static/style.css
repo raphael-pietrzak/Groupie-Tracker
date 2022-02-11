@@ -162,3 +162,9 @@ body{
   border-radius: 5%;
 }
 
+.borderCards{
+  border:none; 
+  padding:0;
+  background: none;
+}
+
