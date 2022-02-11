@@ -24,6 +24,7 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	link_loc := r.Form.Get("w")
 
 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
+	APIRequests()
 	APIRequests2(link_loc)
 
 	formattedConcertLocations := make(map[string][]string)
@@ -33,6 +34,6 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 		country := strings.Title((strings.Replace(split[1], "_", " ", -1)))
 		formattedConcertLocations[city+", "+country] = v
 	}
-	new := ArtistStruct{Tab2: formattedConcertLocations}
+	new := ArtistStruct{Tab2: formattedConcertLocations,Tab: ArtistTab}
 	tmpl.Execute(w, new)
 }
