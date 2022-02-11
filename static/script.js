@@ -4,7 +4,7 @@ function search() {
     let art = document.getElementsByClassName("test")
     let search_input = document.getElementById("searchBar").value;
     for (i = 0; i < art.length; i++) {
-        console.log("hi")
+        console.log(art[i].innerHTML)
         if  (art[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
             art[i].style.display = 'list-item';
         } else {

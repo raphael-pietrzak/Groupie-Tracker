@@ -13,12 +13,11 @@ var ArtistTab []Artist
 var LocationsTab Locations
 var Relation Relations
 var variable map[string][]string
+var tableau []ArtistStruct
 
 type ArtistStruct struct {
 	Tab  []Artist
-	// Tab2 []string
 	Tab2 map[string][]string
-	// Tab3 Locations
 }
 
 type Artist struct {

@@ -36,12 +36,3 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	new := ArtistStruct{Tab2: formattedConcertLocations}
 	tmpl.Execute(w, new)
 }
-
-func Search(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		fmt.Fprintf(w, "ParseForm() err: %v", err)
-		return
-	}
-	search := r.Form.Get("searchBar")
-	fmt.Println(search)
-}

@@ -17,7 +17,6 @@ func main() {
 
 	http.HandleFunc("/", g.MainPage)
 	http.HandleFunc("/artist", g.Artiste)
-	http.HandleFunc("/search", g.Search)
 
 	//Show #CSS
 	fs := http.FileServer(http.Dir("./static"))
