@@ -9,10 +9,10 @@ import (
 )
 
 // Variables Globales
-var ArtistTab []Artist
-var LocationsTab Locations
 var Relation Relationnement
 var Artists Artist
+var ArtistTab []Artist
+var LocationsTab Locations
 var variable map[string][]string
 var tableau []ArtistStruct
 
@@ -66,11 +66,11 @@ func APIRequests2(link string) {
 
 	req, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + link)
 
-	d, _ := ioutil.ReadAll(req.Body)
+	d1, _ := ioutil.ReadAll(req.Body)
 	req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/artists/" + link)
 
 	d2, _ := ioutil.ReadAll(req2.Body)
 
-	json.Unmarshal(d, &Relation)
+	json.Unmarshal(d1, &Relation)
 	json.Unmarshal(d2, &Artists)
 }

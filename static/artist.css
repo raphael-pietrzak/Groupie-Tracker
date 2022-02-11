@@ -45,8 +45,33 @@ body {
   }
   .head {
     background-color: rgb(41, 44, 49);
-  }
-  .head h1 {
-      color: white;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+
+  .title{
+    font-size: 100px;
+    font-family: System-ui;
+    display: inline-block;
+    margin: 0;
+    padding: 30px;
+    margin-left: 30px;
   }
 
+.home {
+    background-color: rgb(42, 44, 49);
+    color: white;
+    padding: 16px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .home:hover, .home:focus {
+    color: orange;
+  }
+  .img{
+      border-radius: 30px;
+  }
