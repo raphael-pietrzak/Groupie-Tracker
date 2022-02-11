@@ -15,8 +15,28 @@
     <div class="filter">
         <button onclick="searchFilter()" class="dropbtn">Filtres</button>
         <div id="myDropdown" class="dropdown-content">
-            <a>Members</a>
 
+        <form method="post" action="" class="options3">
+            <a>Members
+                <input onclick="numb_members('idMembers1')" type="checkbox" value="1" id="idMembers1" name="members" class="style_members">
+                <label for="1">1</label>
+                <input onclick="numb_members('idMembers2')" type="checkbox" value="2" id="idMembers2" name="members">
+                <label for="2">2</label>
+                <input onclick="numb_members('idMembers3')" type="checkbox" value="3" id="idMembers3" name="members">
+                <label for="3">3</label>
+                <input onclick="numb_members('idMembers4')" type="checkbox" value="4" id="idMembers4" name="members">
+                <label for="4">4</label>
+                <input onclick="numb_members('idMembers5')" type="checkbox" value="5" id="idMembers5" name="members">
+                <label for="5">5</label>
+                <input onclick="numb_members('idMembers6')" type="checkbox" value="6" id="idMembers6" name="members">
+                <label for="6">6</label>
+                <input onclick="numb_members('idMembers7')" type="checkbox" value="7" id="idMembers7" name="members">
+                <label for="7">7</label>
+                <input onclick="numb_members('idMembers8')" type="checkbox" value="8" id="idMembers8" name="members">
+                <label for="8">8</label>
+            </a>
+        </form>
+             
                 <div class="options2"> 
                     <a>Creation Date
                     <input onclick="dateCreation_filter()" class="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">

@@ -1,8 +1,3 @@
-
-// membersSearch
-// creationDateSearch
-// searchFirstAlbum
-
 function search() {
     let art = document.getElementsByClassName("test");
     let search_input = document.getElementById("searchBar").value;
@@ -16,6 +11,12 @@ function search() {
           art[i].style.display = 'none';
       }
     }
+}
+
+function numb_members(num) {
+  if (document.getElementById(num).checked == true) {
+    console.log(num)
+  }
 }
 
 function dateCreation_filter() {
@@ -40,7 +41,7 @@ function searchFilter() {
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
         if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+          // openDropdown.classList.remove('show');
         }
       }
     }

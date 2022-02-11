@@ -2,14 +2,9 @@ body{
   margin: 0;
 }
 /* Filtres */
-.options{
-  width: 700px;
-  border-radius: 2em;
-}
 
-.options2{
-  width: 700px;
-  border-radius: 2em;
+.style_members{
+  margin-left: 108px;
 }
 
 .tickValue{
@@ -35,7 +30,7 @@ body{
 }
 
 .dropdown-content {
-  width: 700px;
+  width: 550px;
   white-space: nowrap;
 }
 
