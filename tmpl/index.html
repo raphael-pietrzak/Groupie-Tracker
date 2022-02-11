@@ -15,19 +15,37 @@
     <div class="filter">
         <button onclick="searchFilter()" class="dropbtn">Filtres</button>
         <div id="myDropdown" class="dropdown-content">
-            <a>Members</a>
 
-            <div class="options2">
-                <a>Creation Date
-                    <input onclick="dateCreation_filter()" class="slider_DC" type="range" min="1958" max="2015" step="1"
-                        list="steplist" id="dateCreation">
-                </a>
-            </div>
-
-            <div class="options">
-                <a>First Album Date
-                    <input onchange="firstAlb_filter()" class="slider_FAD" type="range" min="1" max="8" step="1"
-                        list="steplist" id="FirstAlb">
+        <form method="post" action="" class="options3">
+            <a>Members
+                <input onclick="numb_members('idMembers1')" type="checkbox" value="1" id="idMembers1" name="members" class="style_members">
+                <label for="1">1</label>
+                <input onclick="numb_members('idMembers2')" type="checkbox" value="2" id="idMembers2" name="members">
+                <label for="2">2</label>
+                <input onclick="numb_members('idMembers3')" type="checkbox" value="3" id="idMembers3" name="members">
+                <label for="3">3</label>
+                <input onclick="numb_members('idMembers4')" type="checkbox" value="4" id="idMembers4" name="members">
+                <label for="4">4</label>
+                <input onclick="numb_members('idMembers5')" type="checkbox" value="5" id="idMembers5" name="members">
+                <label for="5">5</label>
+                <input onclick="numb_members('idMembers6')" type="checkbox" value="6" id="idMembers6" name="members">
+                <label for="6">6</label>
+                <input onclick="numb_members('idMembers7')" type="checkbox" value="7" id="idMembers7" name="members">
+                <label for="7">7</label>
+                <input onclick="numb_members('idMembers8')" type="checkbox" value="8" id="idMembers8" name="members">
+                <label for="8">8</label>
+            </a>
+        </form>
+             
+                <div class="options2"> 
+                    <a>Creation Date
+                    <input onclick="dateCreation_filter()" class="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
+                    </a>
+                </div>
+                
+                <div class="options"> 
+                    <a>First Album Date 
+                    <input onchange="firstAlb_filter()" class="slider_FAD" type="range" min="1" max="8" step="1" list="steplist" id="FirstAlb">
                     <div class="tickValue">
                         <span class="numMembers"> 1 </span>
                         <span class="numMembers"> 2 </span>
@@ -49,10 +67,10 @@
         <div class="nav">
             <input onkeyup="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
         </div>
-
     </div>
     <div class="cards">
         {{ range .Tab }}
+<<<<<<< HEAD
         <form action="/artist" class="test">
             <button type="submit" value={{.Id}} name="w" method="post" class="borderCards">
                 <div class="card">
@@ -64,8 +82,36 @@
                 </div>
             </button>
         </form>
+=======
+            <form action="/artist" class="test">
+                <button type="submit" value={{.Locations}} name="w"  method="post" class="borderCards">  
+                    <div class="card">
+                        <img src="{{ .Image }}" class="image">
+                        <p class="name"> {{.Name}}  </p>
+                        <div class="para">
+                            <h2>Members</h2>
+                            <p class="membersSearch"> 
+                                {{range .Members}} 
+                                   <p class="no-margin">{{ . }}</p> 
+                                {{ end }}  
+                            </p>  
+                            <h2>Creation Date</h2>
+                            <p class="creationDateSearch"> {{.CreationDate }}</p>
+                            <h2>First Album</h2>
+                            <p class="searchFirstAlbum">{{ .FirstAlbum }}</p>
+                        </div>
+                    </div>
+                </button>
+            </form>
+>>>>>>> 857d744bd07e22949878597260f78f278ca8e41e
         {{end}}
     </div>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html> 
+
+
+>>>>>>> 857d744bd07e22949878597260f78f278ca8e41e
