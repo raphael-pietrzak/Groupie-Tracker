@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    background-color: rgb(41, 44, 49);
+}
+
+.main{
+    background-color: white;
+    border: 2px solid black;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    text-align:center;
+}
+
+.main .infos {
+    width: 50%;
+
+}
+.main .concerts {
+    width: 50%;
+}
+
+.topnav {
+    background-color: rgb(41, 44, 49);
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: rgb(41, 44, 49);
+  }
+  .topnav a.active {
+    background-color: black;
+    color: white;
+  }
+  .head {
+    background-color: rgb(41, 44, 49);
+  }
+  .head h1 {
+      color: white;
+  }
+

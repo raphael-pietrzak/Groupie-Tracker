@@ -13,11 +13,11 @@ var ArtistTab []Artist
 var LocationsTab Locations
 var Relation Relations
 var variable map[string][]string
+var tableau []ArtistStruct
 
 type ArtistStruct struct {
 	Tab  []Artist
-	Tab2 []string
-	// Tab3 Locations
+	Tab2 map[string][]string
 }
 
 type Artist struct {
@@ -38,7 +38,7 @@ type Locations struct {
 }
 
 type Relations struct {
-	Index []Relationnement `json:"index`
+	Index []Relationnement `json:"index"`
 }
 
 type Relationnement struct {
@@ -80,10 +80,6 @@ func APIRequests2(link string) {
 	json.Unmarshal(d, &LocationsTab)
 
 
-	// Relier ça... 
-
-	fmt.Println(LocationsTab.Id)
-	fmt.Println(LocationsTab.Locations)
 
 	req2, err := http.Get("https://groupietrackers.herokuapp.com/api/relation")
 
@@ -98,10 +94,6 @@ func APIRequests2(link string) {
 		fmt.Println(err2)
 	}
 	json.Unmarshal(d2, &Relation)
-
-
-	// Avec ça !!
-	fmt.Println(Relation)
 	for _, v := range Relation.Index {
 		if v.Id == LocationsTab.Id{
 			variable = v.DatesLoc
