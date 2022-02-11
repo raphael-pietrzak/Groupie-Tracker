@@ -1,5 +1,3 @@
-
-
 console.log(art)
 
 function search() {
