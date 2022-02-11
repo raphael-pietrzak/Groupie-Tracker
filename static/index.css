@@ -1,0 +1,82 @@
+body{
+  margin: 0;
+}
+
+.head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  font-family: System-ui;
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  background-color: rgb(42,44,50);
+
+}
+
+.form-container{
+  /* Barre de recherches */
+}
+
+.title{
+  margin-top: -150px;
+}
+.name {
+  padding: 8px;
+  font-size: 40px;
+}
+
+.cards{
+  font-family: System-ui;
+  display:grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align:center;
+  gap: 30px;
+  margin-top: -150px;
+}
+
+.image{
+  width: 100%;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  /*height: 50%;*/
+}
+
+.para{
+  visibility: hidden;
+}
+.card {
+  border-radius: 5%;
+  border: rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 400px;
+  max-height: 500px;
+  background-color: #fff;
+}
+
+.card:hover .para{
+  visibility: visible;
+}
+
+.card:hover{
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  width: 400px;
+  max-height: 900px;
+}
+
+/* .blocInvisible{
+  width: 400px;
+  max-height: 500px;
+  visibility: hidden;
+}
+
+.blocInvisible:hover{
+  width: 400px;
+  max-height: 900px;
+  visibility: hidden;
+} */

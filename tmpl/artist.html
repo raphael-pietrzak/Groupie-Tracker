@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Dates des concerts : </h1>
+
+   {{range .Tab2}}
+   {{ . }}
+   <br> 
+   {{end}}
+
+   <!-- {{ range $Location, $DatesLoc := . }}
+   <li><strong>{{ $DatesLoc }}</strong>: {{ $Location }}</li>
+    {{ end }} -->
+
+</body>
+</html> 
+
+<!-- {{ range $key, $value := . }}
+   <li><strong>{{ $key }}</strong>: {{ $value }}</li>
+{{ end }} -->
