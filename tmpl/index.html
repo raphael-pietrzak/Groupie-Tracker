@@ -70,7 +70,6 @@
     </div>
     <div class="cards">
         {{ range .Tab }}
-<<<<<<< HEAD
         <form action="/artist" class="test">
             <button type="submit" value={{.Id}} name="w" method="post" class="borderCards">
                 <div class="card">
@@ -82,36 +81,10 @@
                 </div>
             </button>
         </form>
-=======
-            <form action="/artist" class="test">
-                <button type="submit" value={{.Locations}} name="w"  method="post" class="borderCards">  
-                    <div class="card">
-                        <img src="{{ .Image }}" class="image">
-                        <p class="name"> {{.Name}}  </p>
-                        <div class="para">
-                            <h2>Members</h2>
-                            <p class="membersSearch"> 
-                                {{range .Members}} 
-                                   <p class="no-margin">{{ . }}</p> 
-                                {{ end }}  
-                            </p>  
-                            <h2>Creation Date</h2>
-                            <p class="creationDateSearch"> {{.CreationDate }}</p>
-                            <h2>First Album</h2>
-                            <p class="searchFirstAlbum">{{ .FirstAlbum }}</p>
-                        </div>
-                    </div>
-                </button>
-            </form>
->>>>>>> 857d744bd07e22949878597260f78f278ca8e41e
         {{end}}
     </div>
 </body>
 
-<<<<<<< HEAD
-</html>
-=======
 </html> 
 
 
->>>>>>> 857d744bd07e22949878597260f78f278ca8e41e
