@@ -3,14 +3,14 @@ body{
 }
 /* Filtres */
 .options{
-  width: 200px;
+  width: 700px;
   border-radius: 2em;
 }
 
 
 .tickValue{
   display: flex;
-  margin-left: 68px;
+  margin-left: 118px;
   width: 554px;
 }
 
