@@ -1,4 +1,4 @@
-
+console.log(art)
 
 function search() {
     let art = document.getElementsByClassName("test")
