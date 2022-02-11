@@ -3,27 +3,37 @@ body{
 }
 /* Filtres */
 .options{
-  width: 200px;
+  width: 700px;
   border-radius: 2em;
 }
 
+.options2{
+  width: 700px;
+  border-radius: 2em;
+}
 
 .tickValue{
   display: flex;
-  margin-left: 68px;
-  width: 554px;
+  margin-left: 169px;
+  width: 326px;
 }
 
 .numMembers{
   flex: 1;
 }
 
-.slider {
-  width: 500px;
-  /* margin: auto; */
+.slider_FAD {
+  width: 300px;
   margin-left: 50px;
   cursor: grab;
 }
+
+.slider_DC {
+  width: 300px;
+  margin-left: 72px;
+  cursor: grab;
+}
+
 .dropdown-content {
   width: 700px;
   white-space: nowrap;
@@ -168,5 +178,11 @@ body{
   border: none;
   background: none;
   border-radius: 5%;
+}
+
+.borderCards{
+  border:none; 
+  padding:0;
+  background: none;
 }
 

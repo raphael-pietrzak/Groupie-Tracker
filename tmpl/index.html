@@ -15,23 +15,17 @@
     <div class="filter">
         <button onclick="searchFilter()" class="dropbtn">Filtres</button>
         <div id="myDropdown" class="dropdown-content">
-            <a>Creation Date</a>
-            <a>First Album Date</a>
-            <td nowrap> 
-            <div class="members"> 
+            <a>Members</a>
+
+                <div class="options2"> 
+                    <a>Creation Date
+                    <input onclick="dateCreation_filter()" class="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
+                    </a>
+                </div>
+                
                 <div class="options"> 
-                    <a>Members 
-                    <input class="slider" type="range" min="1" max="8" step="1" list="steplist">
-                    <datalist id="steplist">
-                        <option>1</option> 
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option> 
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option> 
-                        <option>8</option>
-                    </datalist>
+                    <a>First Album Date 
+                    <input onchange="firstAlb_filter()" class="slider_FAD" type="range" min="1" max="8" step="1" list="steplist" id="FirstAlb">
                     <div class="tickValue">
                         <span class="numMembers"> 1 </span>
                         <span class="numMembers"> 2 </span>
@@ -45,7 +39,6 @@
                     </a> 
                 </div> 
                  
-            </div> </td>
             <a>Concert Locations</a>
         </div>
     </div>
@@ -58,8 +51,8 @@
     </div>
     <div class="cards">
         {{ range .Tab }}
-            <form action="/artist" method="post" class="test">
-                <button type="submit" value={{.Locations}} name="w"  >  
+            <form action="/artist" class="test">
+                <button type="submit" value={{.Locations}} name="w"  method="post" class="borderCards">  
                     <div class="card">
                         <img src="{{ .Image }}" class="image">
                         <p class="name"> {{.Name}} </p>
