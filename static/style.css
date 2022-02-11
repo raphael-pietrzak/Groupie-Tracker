@@ -11,6 +11,7 @@ body{
 .tickValue{
   display: flex;
   margin-left: 4px;
+  width: 400px;
 }
 
 .numMembers{
@@ -149,14 +150,3 @@ body{
   background: none;
 }
 
-/* .blocInvisible{
-  width: 400px;
-  max-height: 500px;
-  visibility: hidden;
-}
-
-.blocInvisible:hover{
-  width: 400px;
-  max-height: 900px;
-  visibility: hidden;
-} */
