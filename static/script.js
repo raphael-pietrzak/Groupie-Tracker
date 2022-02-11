@@ -10,6 +10,13 @@ function search() {
         }
     }
 }
+
+function numb_members(num) {
+  if (document.getElementById(num).checked == true) {
+    console.log(num)
+  }
+}
+
 function dateCreation_filter() {
   let creation = document.getElementById("dateCreation").value;
   console.log(creation)
@@ -32,7 +39,7 @@ function searchFilter() {
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
         if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+          // openDropdown.classList.remove('show');
         }
       }
     }
