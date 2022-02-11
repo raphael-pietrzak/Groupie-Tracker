@@ -52,26 +52,23 @@
     <div class="head">
         <h1 class="title">Artistes</h1> <br>
         <div class="nav">
-            <input onkeyup="search()" id="searchBar" type="text" class="input" placeholder="Search" />
+            <input onkeyup="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
         </div>
 
     </div>
     <div class="cards">
         {{ range .Tab }}
-        <form action="/artist" method="post">
-            <button type="submit" class="test" value={{.Locations}} name="w">
-                <div class="card">
-                    <img src="{{ .Image }}" class="image">
-                    <h1 class="name"> {{.Name}} </h1>
-                    <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
-                        .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
-                    </p>
-                </div>
-            </button>
-        </form>
+                <button type="submit" value={{.Locations}} name="w" action="/artist" method="post" class="test">  
+                    <div class="card">
+                        <img src="{{ .Image }}" class="image">
+                        <p class="name"> {{.Name}} </p>
+                        <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
+                            .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
+                        </p>
+                    </div>
+                </button>
         {{end}}
     </div>
-    <div id="root"></div>
 </body>
 
 </html> 

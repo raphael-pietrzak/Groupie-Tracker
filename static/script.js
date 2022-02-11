@@ -6,7 +6,7 @@ function search() {
     for (i = 0; i < art.length; i++) {
         console.log(art[i].innerHTML)
         if  (art[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
-            art[i].style.display = 'list-item';
+            art[i].style.display = 'block';
         } else {
             art[i].style.display = 'none';
         }

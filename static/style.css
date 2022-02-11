@@ -5,13 +5,13 @@ body{
 .options{
   width: 200px;
   border-radius: 2em;
-  
 }
+
 
 .tickValue{
   display: flex;
-  margin-left: 4px;
-  width: 400px;
+  margin-left: 68px;
+  width: 554px;
 }
 
 .numMembers{
@@ -20,7 +20,8 @@ body{
 
 .slider {
   width: 500px;
-  margin: auto;
+  /* margin: auto; */
+  margin-left: 50px;
   cursor: grab;
 }
 .dropdown-content {
@@ -96,10 +97,20 @@ body{
   margin-top: -30px;
 }
 
+.searchBar{
+  width: 450px;
+  height: 30px; 
+  outline: 0;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 30px;
+}
 /* Cartes */
 .name {
-  padding: 8px;
   font-size: 40px;
+  margin:0;
+  padding: 0px;
+  margin-top: auto;
 }
 
 .cards{
@@ -129,7 +140,7 @@ body{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 400px;
-  max-height: 500px;
+  max-height: 515px;
   background-color: #fff;
 }
 
@@ -148,5 +159,6 @@ body{
   padding: 0;
   border: none;
   background: none;
+  border-radius: 5%;
 }
 
