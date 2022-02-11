@@ -2,6 +2,7 @@ package groupie
 
 import (
 	// "fmt"
+
 	"fmt"
 	"html/template"
 	"net/http"
@@ -24,16 +25,21 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	link_loc := r.Form.Get("w")
 
 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
-	APIRequests()
+
 	APIRequests2(link_loc)
 
-	formattedConcertLocations := make(map[string][]string)
-	for k, v := range variable {
+	newLocs := make(map[string][]string)
+	for k, v := range Relation.DatesLoc {
+		fmt.Println(k, v)
+		newLocs[k] = v
+	}
+	for k, v := range newLocs {
 		split := strings.Split(k, "-")
 		city := strings.Title((strings.Replace(split[0], "_", " ", -1)))
 		country := strings.Title((strings.Replace(split[1], "_", " ", -1)))
-		formattedConcertLocations[city+", "+country] = v
+		delete(Relation.DatesLoc, k)
+		Relation.DatesLoc[city+", "+country] = v
 	}
-	new := ArtistStruct{Tab2: formattedConcertLocations,Tab: ArtistTab}
-	tmpl.Execute(w, new)
+
+	tmpl.Execute(w, ArtistStruct{S1: Relation, S2: Artists})
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style.css">
-    <script src="static/script.js"></script> 
+    <script src="static/script.js"></script>
 
     <title>Document</title>
 </head>
@@ -17,15 +17,17 @@
         <div id="myDropdown" class="dropdown-content">
             <a>Members</a>
 
-                <div class="options2"> 
-                    <a>Creation Date
-                    <input onclick="dateCreation_filter()" class="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
-                    </a>
-                </div>
-                
-                <div class="options"> 
-                    <a>First Album Date 
-                    <input onchange="firstAlb_filter()" class="slider_FAD" type="range" min="1" max="8" step="1" list="steplist" id="FirstAlb">
+            <div class="options2">
+                <a>Creation Date
+                    <input onclick="dateCreation_filter()" class="slider_DC" type="range" min="1958" max="2015" step="1"
+                        list="steplist" id="dateCreation">
+                </a>
+            </div>
+
+            <div class="options">
+                <a>First Album Date
+                    <input onchange="firstAlb_filter()" class="slider_FAD" type="range" min="1" max="8" step="1"
+                        list="steplist" id="FirstAlb">
                     <div class="tickValue">
                         <span class="numMembers"> 1 </span>
                         <span class="numMembers"> 2 </span>
@@ -36,9 +38,9 @@
                         <span class="numMembers"> 7 </span>
                         <span class="numMembers"> 8 </span>
                     </div>
-                    </a> 
-                </div> 
-                 
+                </a>
+            </div>
+
             <a>Concert Locations</a>
         </div>
     </div>
@@ -51,23 +53,19 @@
     </div>
     <div class="cards">
         {{ range .Tab }}
-            <form action="/artist" class="test">
-                <button type="submit" value={{.Locations}} name="w"  method="post" class="borderCards">  
-                    <div class="card">
-                        <img src="{{ .Image }}" class="image">
-                        <p class="name"> {{.Name}} </p>
-                        <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
-                            .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
-                        </p>
-                    </div>
-                </button>
-            </form>
+        <form action="/artist" class="test">
+            <button type="submit" value={{.Id}} name="w" method="post" class="borderCards">
+                <div class="card">
+                    <img src="{{ .Image }}" class="image">
+                    <p class="name"> {{.Name}} </p>
+                    <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
+                        .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
+                    </p>
+                </div>
+            </button>
+        </form>
         {{end}}
     </div>
 </body>
 
-</html> 
-
-
-
-
+</html>

@@ -11,13 +11,15 @@ import (
 // Variables Globales
 var ArtistTab []Artist
 var LocationsTab Locations
-var Relation Relations
+var Relation Relationnement
+var Artists Artist
 var variable map[string][]string
 var tableau []ArtistStruct
 
 type ArtistStruct struct {
 	Tab  []Artist
-	Tab2 map[string][]string
+	S1 Relationnement
+	S2 Artist
 }
 
 type Artist struct {
@@ -29,6 +31,7 @@ type Artist struct {
 	FirstAlbum   string   `json:"firstAlbum"`
 	Locations    string   `json:"locations"`
 	Dates        string   `json:"dates"`
+	Relations    string   `json:"relations"`
 }
 
 type Locations struct {
@@ -37,15 +40,10 @@ type Locations struct {
 	Dates     string   `json:"dates"`
 }
 
-type Relations struct {
-	Index []Relationnement `json:"index"`
-}
-
 type Relationnement struct {
-	Id       int            `json:"id"`
+	Id       int                 `json:"id"`
 	DatesLoc map[string][]string `json:"datesLocations"`
 }
-
 
 func APIRequests() {
 
@@ -66,40 +64,13 @@ func APIRequests() {
 
 func APIRequests2(link string) {
 
-	req, err := http.Get(link)
+	req, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + link)
 
-	if err != nil {
-		fmt.Println(err)
-	}
+	d, _ := ioutil.ReadAll(req.Body)
+	req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/artists/" + link)
 
-	d, err2 := ioutil.ReadAll(req.Body)
+	d2, _ := ioutil.ReadAll(req2.Body)
 
-	if err2 != nil {
-		fmt.Println(err2)
-	}
-	json.Unmarshal(d, &LocationsTab)
-
-
-
-	req2, err := http.Get("https://groupietrackers.herokuapp.com/api/relation")
-
-
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	d2, err2 := ioutil.ReadAll(req2.Body)
-
-	if err2 != nil {
-		fmt.Println(err2)
-	}
-	json.Unmarshal(d2, &Relation)
-	for _, v := range Relation.Index {
-		if v.Id == LocationsTab.Id{
-			variable = v.DatesLoc
-		}
-	}
+	json.Unmarshal(d, &Relation)
+	json.Unmarshal(d2, &Artists)
 }
-
-
-

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/artist.css">
-    
+
     <title>Document</title>
 </head>
+
 <body>
     <div class="topnav">
         <a class="active" href="#home">Home</a>
@@ -20,19 +22,17 @@
     </div>
     <div class=main>
         <div class="infos">
-            {{ range .Tab }}
-            <p> {{ .Name }} </p>
-            {{ end }}
         </div>
         <div class="concerts">
             <h1> Concerts : </h1> <br>
-            {{ range $Location, $DatesLoc := .Tab2 }}
-            <strong>{{ $Location }} : </strong> 
-            <br> {{ range $DatesLoc }}
-                <li> {{.}}  </li> 
+            {{ range $Location, $DatesLoc := .S1.DatesLoc }}
+            <strong>{{ $Location }} : </strong>
+            <br> {{ range $Detail := $DatesLoc }}
+            <li> {{ $Detail }} </li>
             <br> {{end}}
-            {{ end }} 
+            {{ end }}
         </div>
     </div>
 </body>
-</html> 
+
+</html>
