@@ -42,6 +42,8 @@ body{
   font-size: 30px;
   border: none;
   cursor: pointer;
+  display: inline-block;
+
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -96,16 +98,24 @@ body{
 .title{
   margin: 0;
 }
-
 /* SearchBar */
-.searchBar {
+.filter {
+  display: flex;
   align-items: center;
+  top: 0;
+  background-color: rgb(42, 44, 49);
+}
+.searchBar {
+  display: inline-block;
+  align-items: center;
+  margin-left: 230%;
   width: 450px;
   height: 30px;
   outline: 0;
   border-radius: 30px;
   text-align: center;
   font-size: 30px
+
 }
 
 /* Cartes */
@@ -119,7 +129,7 @@ body{
   font-family: System-ui;
   display:grid;
   place-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4,1fr);
   text-align:center;
   gap: 30px;
   background: none;
@@ -134,6 +144,10 @@ body{
   border-top-right-radius: 5%;
   /* border-radius: 50%; */
   /*height: 50%;*/
+}
+.noresult{
+  color: aqua;
+  font-size: ;
 }
 
 .para{
@@ -150,7 +164,7 @@ body{
 
 }
 .bgc  {
-  width: 100%;
+  width:100%;
   position: absolute;
   background-color: white;
 }
@@ -168,8 +182,8 @@ body{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   width: 400px;
   max-height: 900px;
-
 }
+
 
 .test {
   padding: 0;

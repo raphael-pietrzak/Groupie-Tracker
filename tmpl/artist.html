@@ -12,7 +12,9 @@
 
 <body>
     <div class="topnav">
-        <button class="home">Home</button>
+        <form action="/" method="post">
+            <button class="home">Home</button> 
+        </form>
     </div>
     <div class="head">
         {{range .Tab}}
@@ -21,24 +23,30 @@
         {{end}}
     </div>
     <div class=main>
+        <div class="concerts">
+            {{range .S1}}
+            <div class="dateloc">
+                <div class="date">
+                    <p  class="month"> {{ .Month }} </p>
+                    <p  class="day"> {{ .Day }} </p>
+                    <p  class="year"> {{ .Year }} </p>
+                </div>
+                <div class="loc">
+                    <p >{{ .City }} </p>
+                    <p>{{ .Country }} </p>
+                </div>
+            </div>
+            {{end}}
+        </div>
         <div class="infos">
             {{range .Tab}}
-            {{ range .Members}} <br>
-            {{.}}
+            {{ range .Members}}
+            {{.}} <br>
             {{end}}
             {{.CreationDate}} <br>
-            {{.FirstAlbum}} <br>
+            {{.FirstAlbum}} 
             {{end}}
 
-        </div>
-        <div class="concerts">
-            <h1> Concerts : </h1> <br>
-            {{ range $Location, $DatesLoc := .S1.DatesLoc }}
-            <strong>{{ $Location }} : </strong>
-            <br> {{ range $Detail := $DatesLoc }}
-            <li> {{ $Detail }} </li>
-            <br> {{end}}
-            {{ end }}
         </div>
     </div>
 </body>

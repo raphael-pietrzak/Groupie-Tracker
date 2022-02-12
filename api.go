@@ -12,14 +12,12 @@ import (
 var Relation Relationnement
 var Artists Artist
 var ArtistTab []Artist
-var LocationsTab Locations
 var variable map[string][]string
 var tableau []ArtistStruct
 
 type ArtistStruct struct {
 	Tab  []Artist
-	S1 Relationnement
-	S2 Artist
+	S1 []Date
 }
 
 type Artist struct {
@@ -34,15 +32,18 @@ type Artist struct {
 	Relations    string   `json:"relations"`
 }
 
-type Locations struct {
-	Id        int      `json:"id"`
-	Locations []string `json:"locations"`
-	Dates     string   `json:"dates"`
-}
 
 type Relationnement struct {
 	Id       int                 `json:"id"`
 	DatesLoc map[string][]string `json:"datesLocations"`
+}
+
+type Date struct {
+	Day string
+	Month string
+	Year string
+	City string
+	Country string
 }
 
 func APIRequests() {

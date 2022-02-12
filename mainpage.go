@@ -24,22 +24,31 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	link_loc := r.Form.Get("w")
-	fmt.Println("ID ------->    ", link_loc)
 
 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
 
 	APIRequests2(link_loc)
-	DataRelation :=  make(map[string][]string)
+	DataRelation :=  []Date{}
 	var DRelation Relationnement
-
+	month := []string{"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"}
 	for k, v := range Relation.DatesLoc {
+		a := Date{}
 		split := strings.Split(k, "-")
 		city := strings.Title((strings.Replace(split[0], "_", " ", -1)))
 		country := strings.Title((strings.Replace(split[1], "_", " ", -1)))
-		DataRelation[city+", "+country] = v
+		for _,i := range v{
+			splitdate := strings.Split(i, "-")
+			m,_ := strconv.Atoi(splitdate[1])
+			a.Day = splitdate[0]
+			a.Month = month[m-1]
+			a.Year = splitdate[2]
+			a.City = city
+			a.Country = country 
+			DataRelation = append(DataRelation, a)
+		}
+
 	}
-	DRelation.DatesLoc = DataRelation
+
 	DRelation.Id,_ = strconv.Atoi(link_loc)
-	fmt.Println(Artists)
-	tmpl.Execute(w, ArtistStruct{ S1: DRelation, Tab: []Artist{Artists}})
+	tmpl.Execute(w, ArtistStruct{ S1: DataRelation, Tab: []Artist{Artists}})
 }
