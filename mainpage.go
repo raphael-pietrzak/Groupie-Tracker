@@ -40,6 +40,7 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 		delete(Relation.DatesLoc, k)
 		Relation.DatesLoc[city+", "+country] = v
 	}
+	
 
 	tmpl.Execute(w, ArtistStruct{S1: Relation, S2: Artists})
 }
