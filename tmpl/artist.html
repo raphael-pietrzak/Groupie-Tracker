@@ -12,25 +12,41 @@
 
 <body>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <form action="/" method="post">
+            <button class="home">Home</button> 
+        </form>
     </div>
     <div class="head">
-        <h1>Soja</h1>
+        {{range .Tab}}
+        <img src="{{.Image}}" alt="cover" class="img">
+        <h1 class="title">{{.Name}}</h1>
+        {{end}}
     </div>
     <div class=main>
-        <div class="infos">
-        </div>
         <div class="concerts">
-            <h1> Concerts : </h1> <br>
-            {{ range $Location, $DatesLoc := .S1.DatesLoc }}
-            <strong>{{ $Location }} : </strong>
-            <br> {{ range $Detail := $DatesLoc }}
-            <li> {{ $Detail }} </li>
-            <br> {{end}}
-            {{ end }}
+            {{range .S1}}
+            <div class="dateloc">
+                <div class="date">
+                    <p  class="month"> {{ .Month }} </p>
+                    <p  class="day"> {{ .Day }} </p>
+                    <p  class="year"> {{ .Year }} </p>
+                </div>
+                <div class="loc">
+                    <p >{{ .City }} </p>
+                    <p>{{ .Country }} </p>
+                </div>
+            </div>
+            {{end}}
+        </div>
+        <div class="infos">
+            {{range .Tab}}
+            {{ range .Members}}
+            {{.}} <br>
+            {{end}}
+            {{.CreationDate}} <br>
+            {{.FirstAlbum}} 
+            {{end}}
+
         </div>
     </div>
 </body>

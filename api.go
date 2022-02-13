@@ -9,17 +9,15 @@ import (
 )
 
 // Variables Globales
-var ArtistTab []Artist
-var LocationsTab Locations
 var Relation Relationnement
 var Artists Artist
+var ArtistTab []Artist
 var variable map[string][]string
 var tableau []ArtistStruct
 
 type ArtistStruct struct {
 	Tab  []Artist
-	S1 Relationnement
-	S2 Artist
+	S1 []Date
 }
 
 type Artist struct {
@@ -34,15 +32,18 @@ type Artist struct {
 	Relations    string   `json:"relations"`
 }
 
-type Locations struct {
-	Id        int      `json:"id"`
-	Locations []string `json:"locations"`
-	Dates     string   `json:"dates"`
-}
 
 type Relationnement struct {
 	Id       int                 `json:"id"`
 	DatesLoc map[string][]string `json:"datesLocations"`
+}
+
+type Date struct {
+	Day string
+	Month string
+	Year string
+	City string
+	Country string
 }
 
 func APIRequests() {
@@ -66,11 +67,11 @@ func APIRequests2(link string) {
 
 	req, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + link)
 
-	d, _ := ioutil.ReadAll(req.Body)
+	d1, _ := ioutil.ReadAll(req.Body)
 	req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/artists/" + link)
 
 	d2, _ := ioutil.ReadAll(req2.Body)
 
-	json.Unmarshal(d, &Relation)
+	json.Unmarshal(d1, &Relation)
 	json.Unmarshal(d2, &Artists)
 }

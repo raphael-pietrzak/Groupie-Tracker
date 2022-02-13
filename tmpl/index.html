@@ -62,30 +62,31 @@
             <a>Concert Locations</a>
                 
         </div>
-    </div>
-    <div class="head">
-        <h1 class="title">Artistes</h1> <br>
         <div class="nav">
             <input onkeyup="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
         </div>
     </div>
-    <div class="cards">
-        {{ range .Tab }}
-        <form action="/artist" class="test">
-            <button type="submit" value={{.Id}} name="w" method="post" class="borderCards">
-                <div class="card">
-                    <img src="{{ .Image }}" class="image">
-                    <p class="name"> {{.Name}} </p>
-                    <p class="para"> Members <br> {{range .Members}}{{ . }} <br> {{ end }} <br> Creation Date <br>{{
-                        .CreationDate }} <br> <br> First Album <br>{{ .FirstAlbum }}
-                    </p>
-                </div>
-            </button>
-        </form>
-        {{end}}
+    <div class="head">
+        <h1 class="title">Artistes</h1> <br>
+        <div Id="noresult"></div>
+    </div>
+    <div class="bgc">
+        <div class="cards">
+            {{ range .Tab }}
+            <form action="/artist" class="test">
+                <button type="submit" value={{.Id}} name="w" method="post" class="borderCards">
+                    <div class="card">
+                        <img src="{{ .Image }}" class="image">
+                        <div class="title_card">
+                            <h1 class="name"> {{.Name}} </h1>
+                        </div>
+                        <p class="para"> {{range .Members}}{{ . }} <br> {{ end }}<br>{{.CreationDate }} <br> <br></p>
+                    </div>
+                </button>
+            </form>
+            {{end}}
+        </div>
     </div>
 </body>
 
-</html> 
-
-
+</html>

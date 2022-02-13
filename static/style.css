@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  background-color: rgb(42, 44, 49);
 }
 /* Filtres */
 
@@ -38,13 +39,15 @@ body{
   background-color: rgb(42, 44, 49);
   color: white;
   padding: 16px;
-  font-size: 16px;
+  font-size: 30px;
   border: none;
   cursor: pointer;
+  display: inline-block;
+
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: black;
+  color: orange;
 }
 
 .dropdown {
@@ -67,6 +70,7 @@ body{
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-size: 30px;
 }
 
 .dropdown-content a:hover {
@@ -79,11 +83,10 @@ body{
 
 /* Banniére */
 .head{
-  display: flex;
-  justify-content: center;
+  margin: 0%;
   align-items: center;
   width: 100%;
-  height: 500px;
+  height: 700px;
   font-family: System-ui;
   text-align: center;
   font-size: 50px;
@@ -93,47 +96,46 @@ body{
 }
 
 .title{
-  margin-top: -150px;
-  margin-bottom: 10px;
+  margin: 0;
 }
-
 /* SearchBar */
-.nav{
-  margin-top: -30px;
+.filter {
+  display: flex;
+  align-items: center;
+  top: 0;
+  background-color: rgb(42, 44, 49);
 }
 .searchBar {
+  display: inline-block;
+  align-items: center;
+  margin-left: 230%;
   width: 450px;
   height: 30px;
   outline: 0;
   border-radius: 30px;
   text-align: center;
   font-size: 30px
+
 }
 
-.searchBar{
-  width: 450px;
-  height: 30px; 
-  outline: 0;
-  border-radius: 30px;
-  text-align: center;
-  font-size: 30px;
-}
 /* Cartes */
 .name {
   font-size: 40px;
-  margin:0;
-  padding: 0px;
-  margin-top: auto;
+  padding: 0;
+  margin-top: 10px;
 }
 
 .cards{
   font-family: System-ui;
   display:grid;
   place-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4,1fr);
   text-align:center;
   gap: 30px;
-  margin-top: -150px;
+  background: none;
+  margin-top: -250px;
+  margin-bottom: 300px;
+
 }
 
 .image{
@@ -143,9 +145,14 @@ body{
   /* border-radius: 50%; */
   /*height: 50%;*/
 }
+.noresult{
+  color: aqua;
+  /* font-size: ; */
+}
 
 .para{
   visibility: hidden;
+  
 }
 .card {
   border-radius: 5%;
@@ -153,9 +160,18 @@ body{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 400px;
-  max-height: 515px;
-  background-color: #fff;
+  max-height: 510px;
+
 }
+.bgc  {
+  width:100%;
+  position: absolute;
+  background-color: white;
+}
+.title_card{
+  max-height: 100px;
+}
+
 
 .card:hover .para{
   visibility: visible;
@@ -167,6 +183,7 @@ body{
   width: 400px;
   max-height: 900px;
 }
+
 
 .test {
   padding: 0;
@@ -181,11 +198,11 @@ body{
   background: none;
 }
 
-.no-margin {
-  margin: 2px;
-}
 
 h2{
   margin-bottom: -10px;
 }
 
+.para {
+  font-size: 20px;
+}
