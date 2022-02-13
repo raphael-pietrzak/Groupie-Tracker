@@ -89,7 +89,6 @@ body{
 
 /* Banniére */
 .head{
-  margin: 0%;
   align-items: center;
   width: 100%;
   height: 700px;
@@ -99,36 +98,26 @@ body{
   color: #fff;
   background-color: rgb(42,44,50);
   flex-direction: column;
+
+}
+.title {
+  margin: 0;
+  padding-top: 100px;
 }
 
-.title{
-  margin: 0;
-}
 /* SearchBar */
 .filter {
-  display: flex;
   align-items: center;
-  top: 0;
   background-color: rgb(42, 44, 49);
 }
-.searchBar {
-  display: inline-block;
-  align-items: center;
-  margin-left: 230%;
-  width: 450px;
-  height: 30px;
-  outline: 0;
-  border-radius: 30px;
-  text-align: center;
-  font-size: 30px
 
-}
 
 /* Cartes */
-.name {
+.name h1{
   font-size: 40px;
   padding: 0;
   margin-top: 10px;
+  max-height: 100px;
 }
 
 .cards{
@@ -151,10 +140,6 @@ body{
   /* border-radius: 50%; */
   /*height: 50%;*/
 }
-.noresult{
-  color: aqua;
-  /* font-size: ; */
-}
 
 .para{
   visibility: hidden;
@@ -173,9 +158,6 @@ body{
   width:100%;
   position: absolute;
   background-color: white;
-}
-.title_card{
-  max-height: 100px;
 }
 
 
@@ -209,4 +191,27 @@ h2{
 
 .para {
   font-size: 20px;
+}
+
+.nav{
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+.searchBar {
+  width: 450px;
+  height: 30px;
+  outline: 0;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 30px
+}
+
+
+#answer {
+  color:rgb(42, 44, 49);
+  background-color: white;
+  position: absolute;
+  max-height: 95px;
+  list-style: none;
 }

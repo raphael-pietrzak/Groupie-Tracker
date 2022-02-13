@@ -64,6 +64,7 @@
         </div>
         <div class="nav">
             <input onkeyup="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
+            <div id="answer"></div>
         </div>
     </div>
     <div class="head">
@@ -77,10 +78,15 @@
                 <button type="submit" value={{.Id}} name="w" method="post" class="borderCards">
                     <div class="card">
                         <img src="{{ .Image }}" class="image">
-                        <div class="title_card">
-                            <h1 class="name"> {{.Name}} </h1>
+                        <div class="name">
+                            <h1 name="s1"> {{.Name}} ({{.CreationDate }})</h1>
                         </div>
-                        <p class="para"> {{range .Members}}{{ . }} <br> {{ end }}<br>{{.CreationDate }} <br> <br></p>
+                        <div class="para"> 
+                            {{range .Members}}
+                            <p name="members">{{ . }}</p> 
+                            {{ end }}
+                            <!-- <p name="date" >{{.CreationDate }}</p> -->
+                        </div>
                     </div>
                 </button>
             </form>
