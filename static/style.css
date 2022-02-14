@@ -111,16 +111,63 @@ body{
   background-color: rgb(42, 44, 49);
 }
 
+.body{
+  background-color: white;
+}
+
+.cards{
+  grid-template-columns: repeat(4,1fr); 
+  display: grid;
+  align-items: stretch;
+  justify-items: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+ .card{
+  max-width: 300px;
+  height: 500px;
+  width: 300px;
+  padding: 0;
+  margin: 0;
+  border:solid; 
+ }
+
+
+.para{
+  display: none;
+}
+
+.para:hover{
+  display: block;
+}
+
+.name{
+  margin:0; 
+}
+
+.image{ 
+  width: 100%;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+}
+
+.btn{
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 5%;
+}
 
 /* Cartes */
-.name h1{
+/* .name h1{
   font-size: 40px;
   padding: 0;
   margin-top: 10px;
   max-height: 100px;
-}
+} */
 
-.cards{
+/* .cards{
   font-family: System-ui;
   display:grid;
   place-items: center;
@@ -131,67 +178,64 @@ body{
   margin-top: -250px;
   margin-bottom: 300px;
 
-}
+} */
 
-.image{
+/* .image{
   width: 100%;
   border-top-left-radius: 5%;
   border-top-right-radius: 5%;
   /* border-radius: 50%; */
   /*height: 50%;*/
-}
+/* } */ 
 
-.para{
-  visibility: hidden;
-  
-}
-.card {
+/* .card {
   border-radius: 5%;
   border: rgba(0,0,0,0.2);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 400px;
   max-height: 510px;
+  background-color:white;
+} */
 
-}
-.bgc  {
-  width:100%;
+/* .bgc  {
+  width:auto;
   position: absolute;
   background-color: white;
-}
+} */
 
 
-.card:hover .para{
-  visibility: visible;
+/* .card:hover .para{
+  display: block;
 }
 
 .card:hover{
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  width: 400px;
   max-height: 900px;
-}
+} */
 
-.test {
+/* .test {
   padding: 0;
   border: none;
   background: none;
   border-radius: 5%;
-}
-
+} */
+/* 
 .borderCards{
   border:none; 
   padding:0;
   background: none;
-}
+} */
 
-h2{
-  margin-bottom: -10px;
-}
-
-.para {
+/* .para {
   font-size: 20px;
-}
+  display: none;
+} */
+
+/* .para p{
+  margin:0;
+} */
 
 .nav{
   position: absolute;
@@ -214,10 +258,6 @@ h2{
   position: absolute;
   max-height: 95px;
   list-style: none;
-}
-
-.para p{
-  margin:0;
 }
 
 .date{

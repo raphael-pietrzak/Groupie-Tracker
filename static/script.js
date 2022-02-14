@@ -1,7 +1,7 @@
 function search() {
-    let art = document.getElementsByClassName("test");
+    let art = document.getElementsByClassName("button");
     let search_input = document.getElementById("searchBar").value;
-    let name = document.getElementsByName("s1");
+    let name = document.getElementsByName("artistName");
     let members = document.getElementsByName("members");
     let date = document.getElementsByName("date");
     let nothing = true
