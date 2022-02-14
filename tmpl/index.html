@@ -71,15 +71,15 @@
         <h1 class="title">Artists</h1> <br>
         <div Id="noresult"></div>
     </div>
-    <div class="bgc">
+    <div class="body">
         <div class="cards">
             {{ range .Tab }}
-            <form action="/artist" class="test">
-                <button type="submit" value={{.Id}} name="w" method="post" class="borderCards">
+            <form action="/artist" class="button">
+                <button type="submit" value={{.Id}} name="w" method="post" class="btn">
                     <div class="card">
                         <img src="{{ .Image }}" class="image">
                         <div class="name">
-                            <h1 name="s1"> {{.Name}} </h1>
+                            <h1 name="artistName"> {{.Name}} </h1>
                         </div>
                         <div class="para"> 
                             {{range .Members}}
