@@ -117,15 +117,51 @@ body {
     .year {
         color: grey;
     }
-    .infos{
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-        background: white;
+    /* .infos{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      background: white;
 
-        text-align: center;
-        margin: 30px;
-        color: rgb(42, 44, 49);
-        padding: 30px;
-        height: min-content;
+      text-align: center;
+      margin: 30px;
+      color: rgb(42, 44, 49);
+      padding: 30px;
+      height: min-content;
 
-    }
+    } */
+
+.members{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background: white;
+
+  text-align: center;
+  margin: 30px;
+  color: rgb(42, 44, 49);
+  padding: 30px;
+  height: min-content;
+}
+
+.creationDate{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background: white;
+
+  text-align: center;
+  margin: 30px;
+  color: rgb(42, 44, 49);
+  padding: 30px;
+  height: min-content;
+}
+
+.firstAlbum{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background: white;
+
+  text-align: center;
+  margin: 30px;
+  color: rgb(42, 44, 49);
+  padding: 30px;
+  height: min-content;
+}

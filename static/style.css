@@ -18,6 +18,12 @@ body{
   flex: 1;
 }
 
+.slider.MEMB{
+  width: 300px;
+  margin-left: 50px;
+  cursor: grab;
+}
+
 .slider_FAD {
   width: 300px;
   margin-left: 50px;
@@ -166,7 +172,6 @@ body{
   max-height: 900px;
 }
 
-
 .test {
   padding: 0;
   border: none;
@@ -179,7 +184,6 @@ body{
   padding:0;
   background: none;
 }
-
 
 h2{
   margin-bottom: -10px;
@@ -210,4 +214,12 @@ h2{
   position: absolute;
   max-height: 95px;
   list-style: none;
+}
+
+.para p{
+  margin:0;
+}
+
+.date{
+  padding: 30px;
 }

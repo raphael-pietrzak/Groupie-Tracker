@@ -48,6 +48,7 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 		}
 
 	}
+	
 
 	DRelation.Id,_ = strconv.Atoi(link_loc)
 	tmpl.Execute(w, ArtistStruct{ S1: DataRelation, Tab: []Artist{Artists}})
