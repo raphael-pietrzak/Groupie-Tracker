@@ -13,7 +13,7 @@
 
 <body>
     <div class="filter">
-        <button onclick="searchFilter()" class="dropbtn">Filtres</button>
+        <button onclick="searchFilter()" class="dropbtn">Filters</button>
         <div id="myDropdown" class="dropdown-content">
 
         <form method="post" action="" class="slider.MEMB">
@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="head">
-        <h1 class="title">Artistes</h1> <br>
+        <h1 class="title">Artists</h1> <br>
         <div Id="noresult"></div>
     </div>
     <div class="bgc">
@@ -79,13 +79,13 @@
                     <div class="card">
                         <img src="{{ .Image }}" class="image">
                         <div class="name">
-                            <h1 name="s1"> {{.Name}} ({{.CreationDate }})</h1>
+                            <h1 name="s1"> {{.Name}} </h1>
                         </div>
                         <div class="para"> 
                             {{range .Members}}
                             <p name="members">{{ . }}</p> 
                             {{ end }}
-                            <!-- <p name="date" >{{.CreationDate }}</p> -->
+                            <p name="date" class="date" >{{.CreationDate }}</p>
                         </div>
                     </div>
                 </button>

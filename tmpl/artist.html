@@ -40,11 +40,20 @@
         </div>
         <div class="infos">
             {{range .Tab}}
-            {{ range .Members}}
-            {{.}} <br>
-            {{end}}
-            {{.CreationDate}} <br>
+            <div class = "members">
+                <h2>Members</h2>
+                {{ range .Members}}
+                {{.}} <br>
+                {{end}}
+            </div>
+           <div class="creationDate">
+               <h2>Creation Date</h2>
+            {{.CreationDate}} 
+           </div>
+           <div class="firstAlbum">
+               <h2>First Album</h2>
             {{.FirstAlbum}} 
+           </div>
             {{end}}
         </div>
     </div>

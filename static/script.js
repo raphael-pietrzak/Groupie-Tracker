@@ -24,6 +24,9 @@ function search() {
           
       }
     }
+    if (search_input == "") {
+      document.getElementById("answer").innerHTML = ""
+    }
     if (nothing) {
       document.getElementById("noresult").innerHTML = "We couldn't find any matches for  \" " + search_input + " \"";
     } else {
