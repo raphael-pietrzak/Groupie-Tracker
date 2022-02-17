@@ -39,3 +39,7 @@ function search() {
       document.getElementById("noresult").innerHTML = "";
     }
 }
+
+function searchFilter(){
+  document.getElementById("myDropdown").classList.toggle("show");
+}

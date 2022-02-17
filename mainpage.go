@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+
+	// "sort"
 	"strconv"
 	"strings"
 )
@@ -13,6 +15,20 @@ import (
 func MainPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	APIRequests()
+	// testvar := []string{}
+	// for num, _ := range ArtistTab {
+	// 	APIRequests2(strconv.Itoa(num))
+	// 	for k, _ := range Relation.DatesLoc{
+	// 		split := strings.Split(k,"-")
+	// 		country := strings.Title((strings.Replace(split[1],"_"," ",-1)))
+	// 		if containsCountry(testvar,country) == false {
+	// 			testvar = append(testvar, country)
+	// 		}
+	// 	}
+	// }
+	// sort.Strings(testvar)
+	// fmt.Println(testvar)
+
 	new := ArtistStruct{Tab: ArtistTab}
 
 	// fmt.Println(new)
@@ -24,30 +40,56 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "ParseForm() err: %v", err)
 		return
 	}
-	checkbox,_ := strconv.Atoi(r.Form.Get("members"))
+	checkbox, _ := strconv.Atoi(r.Form.Get("members"))
 	dateCreation, _ := strconv.Atoi(r.Form.Get("slider_DC"))
 	dateAlbum := r.Form.Get("slider_FAD")
 	fmt.Println(checkbox)
 	fmt.Println(dateCreation)
 	fmt.Println(dateAlbum)
 
-	var new_artistTab []Artist
-	for _, v := range ArtistTab{
-
-		if len(v.Members) == checkbox && v.CreationDate == dateCreation {
-			new_artistTab = append(new_artistTab,v )
+	var new_artistTab = ArtistTab
+	if checkbox != 0 {
+		var temp_artistTab []Artist
+		for _, v := range new_artistTab {
+			if len(v.Members) == checkbox {
+				temp_artistTab = append(temp_artistTab, v)
+			}
 		}
-
-		if len(v.Members) == checkbox || v.CreationDate == dateCreation {
-			new_artistTab = append(new_artistTab,v )
-		} 
-		
+		new_artistTab = temp_artistTab
+		// split := strings.Split(v.FirstAlbum, "-")
+		// aza := split[2]
+		// if checkbox != 0 {
+		// 	if dateCreation != 1987 {
+		// 		if len(v.Members) == checkbox && v.CreationDate >= dateCreation {
+		// 			new_artistTab = append(new_artistTab, v)
+		// 		} else {
+		// 			if v.FirstAlbum == dateAlbum {
+		// 				new_artistTab = append(new_artistTab, v)
+		// 			}
+		// 		}
+		// 	} else {
+		// 		if len(v.Members) >= checkbox {
+		// 			new_artistTab = append(new_artistTab, v)
+		// 		}
+		// 	}
+		// } else {
+		// 	if v.CreationDate >= dateCreation {
+		// 		new_artistTab = append(new_artistTab, v)
+		// 	}
+		// }
 	}
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
-
-	
 }
+
+// func containsCountry(testvar []string, str string) bool {
+// 	for _, v := range testvar {
+// 		if v == str {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }
 
 func Artiste(w http.ResponseWriter, r *http.Request) {
 
@@ -60,29 +102,25 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("tmpl/artist.html"))
 
 	APIRequests2(link_loc)
-	DataRelation :=  []Date{}
+	DataRelation := []Date{}
 	var DRelation Relationnement
-	month := []string{"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"}
+	month := []string{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
 	for k, v := range Relation.DatesLoc {
 		a := Date{}
 		split := strings.Split(k, "-")
 		city := strings.Title((strings.Replace(split[0], "_", " ", -1)))
 		country := strings.Title((strings.Replace(split[1], "_", " ", -1)))
-		for _,i := range v{
+		for _, i := range v {
 			splitdate := strings.Split(i, "-")
-			m,_ := strconv.Atoi(splitdate[1])
+			m, _ := strconv.Atoi(splitdate[1])
 			a.Day = splitdate[0]
 			a.Month = month[m-1]
 			a.Year = splitdate[2]
 			a.City = city
-			a.Country = country 
+			a.Country = country
 			DataRelation = append(DataRelation, a)
 		}
-
 	}
-
-
-
-	DRelation.Id,_ = strconv.Atoi(link_loc)
-	tmpl.Execute(w, ArtistStruct{ S1: DataRelation, Tab: []Artist{Artists}})
+	DRelation.Id, _ = strconv.Atoi(link_loc)
+	tmpl.Execute(w, ArtistStruct{S1: DataRelation, Tab: []Artist{Artists}})
 }

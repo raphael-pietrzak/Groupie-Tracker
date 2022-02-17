@@ -74,4 +74,6 @@ func APIRequests2(link string) {
 
 	json.Unmarshal(d1, &Relation)
 	json.Unmarshal(d2, &Artists)
+
+	
 }
