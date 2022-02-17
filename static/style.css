@@ -38,6 +38,7 @@ body{
 .dropdown-content {
   width: 550px;
   white-space: nowrap;
+  border-radius: 8px;
 }
 
 .dropbtn {
@@ -48,7 +49,6 @@ body{
   border: none;
   cursor: pointer;
   display: inline-block;
-
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -63,7 +63,7 @@ body{
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: white;
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -79,7 +79,7 @@ body{
 }
 
 .dropdown-content a:hover {
-  background-color: rgb(207, 204, 204);}
+  background-color: #ddd;}
 
 .show {
   display: block;
@@ -146,16 +146,7 @@ body{
   cursor: pointer;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   max-height: 900px;
-  -webkit-transition:  box-shadow .6s ease-in;
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
   transform: scale(1.05);
-  -webkit-transform: all .3s ease-in-out .3s;
-  -moz-transform: all .3s ease-in-out .3s;
-  -ms-transform: all .3s ease-in-out .3s;
-  -o-transform: all .3s ease-in-out .3s;
   transition: all .3s ease-in-out .3s;
 
  }
@@ -177,6 +168,8 @@ body{
   align-items: center;
   justify-content: center;
   padding: 5px;
+  color: rgb(42, 44, 49);
+
 }
 
 .image{ 
@@ -188,7 +181,7 @@ body{
 .btn{
   padding: 0;
   border: none;
-  background:none;
+  background: none;
   border-radius: 5%;
 } 
 
@@ -196,46 +189,42 @@ body{
   position: absolute;
   right: 30px;
   top: 15px;
+  max-height: 280px;
+  list-style: none;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 70px;
+  font-size: 25px;
+  text-align: center;
+
 }
 .searchBar {
   width: 450px;
   height: 30px;
   outline: 0;
-  border-radius: 30px;
-  text-align: center;
-  font-size: 30px
-}
-
-#answer {
-  color:rgb(42, 44, 49);
-  background-color: white;
-  position: absolute;
-  max-height: 95px;
-  list-style: none;
-}
-
-.date{
-  padding: 30px;
-}
-
-.dropbtnLocations{
-  background-color: rgb(42, 44, 49);
-  color: white;
-  padding: 16px;
-  font-size: 30px;
+  border-radius: 20px;
   border: none;
-  cursor: pointer;
-  display: inline-block;
+  padding-left: 16px;
 }
 
-.dropdown-contentLocations{
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+#answer a {
+  display: block;
+  text-align: start;
+  color: black;
+  padding: 10px 16px;
+  text-decoration: none;
+  
+}
+#answer a p {
+  float: right;
+  margin: 0;
+  color: rgb(196, 194, 194);
+}
+
+/* Change the color of links on hover */
+#answer a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
 .show2{
