@@ -68,8 +68,9 @@
             <form action="/artist" class="button">
                 <button type="submit" value={{.Id}} name="w" method="post" class="btn">
                     <div class="card">
-                        <img src="{{ .Image }}" class="image">
-                        <div class="name">
+                        <p name="animation">
+                            <img src="{{ .Image }}" class="image">
+                            <div class="name">
                             <h1 name="artistName"> {{.Name}} </h1>
                         </div>
                         <div class="para"> 
@@ -78,6 +79,7 @@
                             {{ end }}
                             <p name="date" class="date" >{{.CreationDate }}</p>
                         </div>
+                        </p>
                     </div>
                 </button>
             </form>

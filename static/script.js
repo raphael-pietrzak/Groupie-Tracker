@@ -1,31 +1,37 @@
 function search() {
     let art = document.getElementsByClassName("button");
+    let searchBar = document.getElementsByClassName("nav");
     let search_input = document.getElementById("searchBar").value;
     let name = document.getElementsByName("artistName");
     let members = document.getElementsByName("members");
     let date = document.getElementsByName("date");
     let nothing = true
     document.getElementById("answer").innerHTML = ""
+
     for (i = 0; i < art.length; i++) {
+      let j = i+1
       if (name[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
           art[i].style.display = 'block';
           nothing = false;
-          document.getElementById("answer").innerHTML += "<li>" + name[i].innerHTML + "  name"+ "</li>"
+          document.getElementById("answer").innerHTML += "<a href=http://localhost:5500/artist?w="+ j +">" + name[i].innerHTML + "  name"+ "</a> <br>"
       } else if (members[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
           art[i].style.display = 'block';
           nothing = false;
-          document.getElementById("answer").innerHTML += "<li>" + members[i].innerHTML + "  members"+ "</li>"
+          document.getElementById("answer").innerHTML += "<a href=http://localhost:5500/artist?w="+ j +">" + members[i].innerHTML + "  members"+ "</a> <br>"
       } else if (date[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
           art[i].style.display = 'block';
-          document.getElementById("answer").innerHTML += "<li>" + date[i].innerHTML + "  date"+ "</li>"
+          document.getElementById("answer").innerHTML += "<a href=http://localhost:5500/artist?w="+ j +">" + date[i].innerHTML + "  date"+ "</a> <br>"
           nothing = false;
-      } else{
+      } else {
           art[i].style.display = 'none';
           
       }
     }
     if (search_input == "") {
       document.getElementById("answer").innerHTML = ""
+      searchBar[0].style.borderRadius = '70px';
+    } else {
+      searchBar[0].style.borderRadius = '8px';
     }
     if (nothing) {
       document.getElementById("noresult").innerHTML = "We couldn't find any matches for  \" " + search_input + " \"";
@@ -33,21 +39,3 @@ function search() {
       document.getElementById("noresult").innerHTML = "";
     }
 }
-
-function searchFilter() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        // if (openDropdown.classList.contains('show')) {
-        //   // openDropdown.classList.remove('show');
-        // }
-      }
-    }
-  }
