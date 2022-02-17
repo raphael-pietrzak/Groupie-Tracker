@@ -44,15 +44,20 @@
                 
                 <div class="options"> 
                     <a>First Album Date 
-                    <input class="slider_FAD" name="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                    <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
                     </a>
                 </div>
-            <button type="submit" name="confirmation" method="post" button>Apply filters</button>
+            <button onclick="searchFilterLoc()" class="dropbtnLocations">Concert Locations</button>
+            <div id="myDropdownLocations" class="dropdown-contentLocations">
+                <a> Test1</a>
+                <a> Test2</a>
+            </div> <br>
+            <button type="submit" name="confirmation" methode="post">Apply filters</button>
         </div>
     </form>
 
         <div class="nav">
-            <input onkeyup="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
+            <input onkeyup="search()" onclick="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
             <div id="answer"></div>
         </div>
     </div>
@@ -73,7 +78,7 @@
                         </div>
                         <div class="para"> 
                             {{range .Members}}
-                            <p name="members">{{ . }}</p> 
+                            <p name="members1" >{{ . }}</p> 
                             {{ end }}
                             <p name="date" class="date" >{{.CreationDate }}</p>
                         </div>

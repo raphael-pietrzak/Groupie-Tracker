@@ -6,28 +6,14 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
-
-	// "sort"
 	"strconv"
 	"strings"
 )
 
 func MainPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
+
 	APIRequests()
-	// testvar := []string{}
-	// for num, _ := range ArtistTab {
-	// 	APIRequests2(strconv.Itoa(num))
-	// 	for k, _ := range Relation.DatesLoc{
-	// 		split := strings.Split(k,"-")
-	// 		country := strings.Title((strings.Replace(split[1],"_"," ",-1)))
-	// 		if containsCountry(testvar,country) == false {
-	// 			testvar = append(testvar, country)
-	// 		}
-	// 	}
-	// }
-	// sort.Strings(testvar)
-	// fmt.Println(testvar)
 
 	new := ArtistStruct{Tab: ArtistTab}
 
@@ -54,8 +40,9 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 			if len(v.Members) == checkbox {
 				temp_artistTab = append(temp_artistTab, v)
 			}
-		}
+
 		new_artistTab = temp_artistTab
+		}
 		// split := strings.Split(v.FirstAlbum, "-")
 		// aza := split[2]
 		// if checkbox != 0 {
@@ -80,7 +67,18 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	}
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
+	
 }
+
+func ContainsCountry(testvar []string, str string) bool {
+	for _, v := range testvar {
+		if v == str {
+			return false
+		}
+	}
+	return true
+}
+
 
 // func containsCountry(testvar []string, str string) bool {
 // 	for _, v := range testvar {
