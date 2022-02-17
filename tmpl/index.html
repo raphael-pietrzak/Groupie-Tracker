@@ -15,53 +15,44 @@
     <div class="filter">
         <button onclick="searchFilter()" class="dropbtn">Filters</button>
         <div id="myDropdown" class="dropdown-content">
-
-        <form method="post" action="" class="slider.MEMB">
+    
+    <form method="post" action="/filter">
             <a>Members
-                <input onclick="numb_members('idMembers1')" type="checkbox" value="1" id="idMembers1" name="members" class="style_members">
+                <input type="checkbox" value="1" id="idMembers1" name="members" class="style_members">
                 <label for="1">1</label>
-                <input onclick="numb_members('idMembers2')" type="checkbox" value="2" id="idMembers2" name="members">
+                <input type="checkbox" value="2" id="idMembers2" name="members">
                 <label for="2">2</label>
-                <input onclick="numb_members('idMembers3')" type="checkbox" value="3" id="idMembers3" name="members">
+                <input type="checkbox" value="3" id="idMembers3" name="members">
                 <label for="3">3</label>
-                <input onclick="numb_members('idMembers4')" type="checkbox" value="4" id="idMembers4" name="members">
+                <input type="checkbox" value="4" id="idMembers4" name="members">
                 <label for="4">4</label>
-                <input onclick="numb_members('idMembers5')" type="checkbox" value="5" id="idMembers5" name="members">
+                <input type="checkbox" value="5" id="idMembers5" name="members">
                 <label for="5">5</label>
-                <input onclick="numb_members('idMembers6')" type="checkbox" value="6" id="idMembers6" name="members">
+                <input type="checkbox" value="6" id="idMembers6" name="members">
                 <label for="6">6</label>
-                <input onclick="numb_members('idMembers7')" type="checkbox" value="7" id="idMembers7" name="members">
+                <input type="checkbox" value="7" id="idMembers7" name="members">
                 <label for="7">7</label>
-                <input onclick="numb_members('idMembers8')" type="checkbox" value="8" id="idMembers8" name="members">
+                <input type="checkbox" value="8" id="idMembers8" name="members">
                 <label for="8">8</label>
             </a>
-        </form>
              
                 <div class="options2"> 
                     <a>Creation Date
-                    <input onclick="dateCreation_filter()" class="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
+                    <input class="slider_DC" name="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
                     </a>
                 </div>
                 
                 <div class="options"> 
                     <a>First Album Date 
-                    <input onchange="firstAlb_filter()" class="slider_FAD" type="range" min="1" max="8" step="1" list="steplist" id="FirstAlb">
-                    <div class="tickValue">
-                        <span class="numMembers"> 1 </span>
-                        <span class="numMembers"> 2 </span>
-                        <span class="numMembers"> 3 </span>
-                        <span class="numMembers"> 4 </span>
-                        <span class="numMembers"> 5 </span>
-                        <span class="numMembers"> 6 </span>
-                        <span class="numMembers"> 7 </span>
-                        <span class="numMembers"> 8 </span>
-                    </div>
-                </a>
-            </div>
+                    <input class="slider_FAD" name="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                    </a>
+                </div>
 
             <a>Concert Locations</a>
-                
+            <button type="submit" name="confirmation" method="post" button>Apply filters</button>
         </div>
+    </form>
+
         <div class="nav">
             <input onkeyup="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
             <div id="answer"></div>

@@ -34,22 +34,6 @@ function search() {
     }
 }
 
-function numb_members(num) {
-  if (document.getElementById(num).checked == true) {
-    console.log(num)
-  }
-}
-
-function dateCreation_filter() {
-  let creation = document.getElementById("dateCreation").value;
-  console.log(creation)
-}
-
-function firstAlb_filter() {
-  let album = document.getElementById("FirstAlb").value;
-  console.log(album)
-}
-
 function searchFilter() {
     document.getElementById("myDropdown").classList.toggle("show");
   }

@@ -14,7 +14,39 @@ func MainPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	APIRequests()
 	new := ArtistStruct{Tab: ArtistTab}
+
+	// fmt.Println(new)
 	tmpl.Execute(w, new)
+}
+
+func Filter(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		fmt.Fprintf(w, "ParseForm() err: %v", err)
+		return
+	}
+	checkbox,_ := strconv.Atoi(r.Form.Get("members"))
+	dateCreation, _ := strconv.Atoi(r.Form.Get("slider_DC"))
+	dateAlbum := r.Form.Get("slider_FAD")
+	fmt.Println(checkbox)
+	fmt.Println(dateCreation)
+	fmt.Println(dateAlbum)
+
+	var new_artistTab []Artist
+	for _, v := range ArtistTab{
+
+		if len(v.Members) == checkbox && v.CreationDate == dateCreation {
+			new_artistTab = append(new_artistTab,v )
+		}
+
+		if len(v.Members) == checkbox || v.CreationDate == dateCreation {
+			new_artistTab = append(new_artistTab,v )
+		} 
+		
+	}
+	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
+	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
+
+	
 }
 
 func Artiste(w http.ResponseWriter, r *http.Request) {
@@ -48,7 +80,8 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 		}
 
 	}
-	
+
+
 
 	DRelation.Id,_ = strconv.Atoi(link_loc)
 	tmpl.Execute(w, ArtistStruct{ S1: DataRelation, Tab: []Artist{Artists}})
