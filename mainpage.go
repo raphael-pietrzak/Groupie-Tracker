@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -13,8 +14,31 @@ import (
 func MainPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	APIRequests()
+	testvar := []string{}
+	for num, _ := range ArtistTab {
+		APIRequests2(strconv.Itoa(num))
+		for k, _ := range Relation.DatesLoc{
+			split := strings.Split(k,"-")
+			country := strings.Title((strings.Replace(split[1],"_"," ",-1))) 
+			if containsCountry(testvar,country) == false {
+				testvar = append(testvar, country)  
+			}
+		}
+	}
+	sort.Strings(testvar)
+	fmt.Println(testvar)
+
 	new := ArtistStruct{Tab: ArtistTab}
 	tmpl.Execute(w, new)
+}
+
+func containsCountry(testvar []string, str string) bool {
+	for _, v := range testvar {
+		if v == str {
+			return true
+		}
+	}
+	return false
 }
 
 func Artiste(w http.ResponseWriter, r *http.Request) {
@@ -46,10 +70,8 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 			a.Country = country 
 			DataRelation = append(DataRelation, a)
 		}
-
 	}
-	
-
 	DRelation.Id,_ = strconv.Atoi(link_loc)
 	tmpl.Execute(w, ArtistStruct{ S1: DataRelation, Tab: []Artist{Artists}})
 }
+
