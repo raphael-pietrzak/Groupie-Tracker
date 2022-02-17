@@ -39,3 +39,11 @@ function search() {
       document.getElementById("noresult").innerHTML = "";
     }
 }
+
+function searchFilter(){
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function searchFilterLoc(){
+  document.getElementById("myDropdownLocations").classList.toggle("show2");
+}

@@ -185,35 +185,60 @@ body{
   border-top-right-radius: 5%;
 }
 
+.btn{
+  padding: 0;
+  border: none;
+  background:none;
+  border-radius: 5%;
+} 
 
 .nav{
   position: absolute;
   right: 30px;
   top: 15px;
-  max-height: 95px;
-  list-style: none;
-  overflow: hidden;
-  background-color: #fff;
-  border-radius: 70px;
-  font-size: 25px;
-  text-align: center;
-  color: rgb(42, 44, 49);
-
 }
 .searchBar {
-  font-size: 25px;
   width: 450px;
   height: 30px;
   outline: 0;
+  border-radius: 30px;
   text-align: center;
-  border-radius: 20px;
-  border: none;
+  font-size: 30px
 }
 
-
-
-
+#answer {
+  color:rgb(42, 44, 49);
+  background-color: white;
+  position: absolute;
+  max-height: 95px;
+  list-style: none;
+}
 
 .date{
   padding: 30px;
 }
+
+.dropbtnLocations{
+  background-color: rgb(42, 44, 49);
+  color: white;
+  padding: 16px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.dropdown-contentLocations{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.show2{
+  display: block;
+}
+
