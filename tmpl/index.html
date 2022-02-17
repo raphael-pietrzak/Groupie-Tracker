@@ -63,7 +63,7 @@
                 
         </div>
         <div class="nav">
-            <input onkeyup="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
+            <input onkeyup="search()" onclick="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
             <div id="answer"></div>
         </div>
     </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="para"> 
                             {{range .Members}}
-                            <p name="members">{{ . }}</p> 
+                            <p name="members1" >{{ . }}</p> 
                             {{ end }}
                             <p name="date" class="date" >{{.CreationDate }}</p>
                         </div>
