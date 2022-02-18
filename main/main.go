@@ -19,6 +19,7 @@ func main() {
 
 	http.HandleFunc("/", g.MainPage)
 	http.HandleFunc("/artist", g.Artiste)
+	http.HandleFunc("/filter", g.Filter)
 
 	g.APIRequestsLoc()
 	for _, v := range g.LocationTab {
