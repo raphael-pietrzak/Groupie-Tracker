@@ -41,6 +41,8 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	APIRequests2(link_loc)
 	DataRelation := []Date{}
 	var DRelation Relationnement
+	fmt.Println(DataRelation)
+	
 	month := []string{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
 	for k, v := range Relation.DatesLoc {
 		a := Date{}
