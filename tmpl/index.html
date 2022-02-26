@@ -36,25 +36,70 @@
                     <label for="8">8</label>
                 </a>
                 
-                    <div class="options2"> 
-                        <a>Creation Date
-                        <input class="slider_DC" name="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
-                        </a>
-                    </div>
-                    
-                    <div class="options"> 
-                        <a>First Album Date 
-                        <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
-                        </a>
-                    </div>
-                <button onclick="searchFilterLoc()" class="dropbtnLocations">Concert Locations</button>
-                <div id="myDropdownLocations" class="dropdown-contentLocations">
-                    <a> Test1</a>
-                    <a> Test2</a>
-                </div> <br>
-                <button type="submit" name="confirmation" methode="post">Apply filters</button>
-            </div>
-        </form>
+                <div class="options"> 
+                    <a>First Album Date 
+                    <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                    </a>
+                </div>
+
+                <form action="/filter" name="locationsFilter">
+                    <div class="options3">
+                        <button onclick="searchFilterLoc()" class="dropbtnLocations">Concert Locations</button>
+                        <div id="myDropdownLocations" class="dropdown-contentLocations">
+                        <a>Argentina</a>
+                        <a>Australia</a>
+                        <a>Austria</a>
+                        <a>Belarus</a>
+                        <a>Belgium</a>
+                        <a>Brazil</a>
+                        <a>Canada</a>
+                        <a>Chile</a>
+                        <a>China</a>
+                        <a>Colombia</a>
+                        <a>Costa Rica</a>
+                        <a>Czechia</a>
+                        <a>Denmark</a>
+                        <a>Finland</a>
+                        <a>France</a>
+                        <a>French Polynesia</a>
+                        <a>Germany</a>
+                        <a>Greece</a>
+                        <a>Hungary</a>
+                        <a>India</a>
+                        <a>Indonesia</a>
+                        <a>Ireland</a>
+                        <a>Italy</a>
+                        <a>Japan</a>
+                        <a>Mexico</a>
+                        <a>Netherlands</a>
+                        <a>Netherlands Antilles</a>
+                        <a>New Caledonia</a>
+                        <a>New Zealand</a>
+                        <a>Norway</a>
+                        <a>Peru</a>
+                        <a>Philippines</a>
+                        <a>Poland</a>
+                        <a>Portugal</a>
+                        <a>Qatar</a>
+                        <a>Romania</a>
+                        <a>Saudi Arabia</a>
+                        <a>Slovakia</a>
+                        <a>South Korea</a>
+                        <a>Spain</a>
+                        <a>Sweden</a>
+                        <a>Switzerland</a>
+                        <a>Taiwan</a>
+                        <a>Thailand</a>
+                        <a>Uk</a>
+                        <a>United Arab Emirates</a>
+                        <a>Usa</a>
+                        </div>
+                    </div> <br>
+                </form>
+                  
+            <button type="submit" name="confirmation" methode="post">Apply filters</button>
+        </div>
+    </form>
 
         <div class="nav">
             <input onkeyup="search()" onclick="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />

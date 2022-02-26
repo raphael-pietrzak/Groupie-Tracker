@@ -4,7 +4,7 @@ import (
 	"fmt"
 	g "groupie"
 	"net/http"
-	"sort"
+	// "sort"
 	"strings"
 	// "github.com/gorilla/mux"
 )
@@ -31,7 +31,8 @@ func main() {
 			}
 		}
 	}
-	sort.Strings(g.Countries)
+	// sort.Strings(g.Countries)
+	// fmt.Println(g.Countries)
 
 	//Show #CSS
 	fs := http.FileServer(http.Dir("./static"))

@@ -1,6 +1,7 @@
 function search() {
     document.getElementsByClassName("dropdown-content")[0].style.display = 'none';
-
+    document.getElementsByClassName("dropdown-contentLocations")[0].style.display = 'none';
+    let art = document.getElementsByClassName("button");
     let searchBar = document.getElementsByClassName("nav");
     let search_input = document.getElementById("searchBar").value;
     
@@ -52,6 +53,7 @@ function search() {
 
 function searchFilterLoc(){
   document.getElementById("myDropdownLocations").classList.toggle("show2");
+  document.getElementsByClassName("dropdown-contentLocations")[0].style.display = 'block';
 }
 
 function searchFilter() {
