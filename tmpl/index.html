@@ -14,92 +14,57 @@
 <body>
     <div class="filter">
         <button onclick="searchFilter()" class="dropbtn">Filters</button>
+
         <div id="myDropdown" class="dropdown-content">
-    
-        <form method="post" action="/filter">
-                <a>Members
-                    <input type="checkbox" value="1" id="idMembers1" name="members" class="style_members">
-                    <label for="1">1</label>
-                    <input type="checkbox" value="2" id="idMembers2" name="members">
-                    <label for="2">2</label>
-                    <input type="checkbox" value="3" id="idMembers3" name="members">
-                    <label for="3">3</label>
-                    <input type="checkbox" value="4" id="idMembers4" name="members">
-                    <label for="4">4</label>
-                    <input type="checkbox" value="5" id="idMembers5" name="members">
-                    <label for="5">5</label>
-                    <input type="checkbox" value="6" id="idMembers6" name="members">
-                    <label for="6">6</label>
-                    <input type="checkbox" value="7" id="idMembers7" name="members">
-                    <label for="7">7</label>
-                    <input type="checkbox" value="8" id="idMembers8" name="members">
-                    <label for="8">8</label>
-                </a>
+            <form method="post" action="/filter">
+                <div class="link">Members
+                    <div class="linkfilter">
+                        <input type="checkbox" value="1" id="idMembers1" name="members" >
+                        <label for="1">1</label>
+                        <input type="checkbox" value="2" id="idMembers2" name="members">
+                        <label for="2">2</label>
+                        <input type="checkbox" value="3" id="idMembers3" name="members">
+                        <label for="3">3</label>
+                        <input type="checkbox" value="4" id="idMembers4" name="members">
+                        <label for="4">4</label>
+                        <input type="checkbox" value="5" id="idMembers5" name="members">
+                        <label for="5">5</label>
+                        <input type="checkbox" value="6" id="idMembers6" name="members">
+                        <label for="6">6</label>
+                        <input type="checkbox" value="7" id="idMembers7" name="members">
+                        <label for="7">7</label>
+                        <input type="checkbox" value="8" id="idMembers8" name="members">
+                        <label for="8">8</label>
+                    </div>
+                </div>
                 
-                <div class="options"> 
-                    <a>First Album Date 
-                    <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
-                    </a>
+                <div class="link">First Album Date 
+                    <div class="linkfilter">
+                        <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                    </div>
                 </div>
 
-                <form action="/filter" name="locationsFilter">
-                    <div class="options3">
-                        <button onclick="searchFilterLoc()" class="dropbtnLocations">Concert Locations</button>
-                        <div id="myDropdownLocations" class="dropdown-contentLocations">
-                        <a>Argentina</a>
-                        <a>Australia</a>
-                        <a>Austria</a>
-                        <a>Belarus</a>
-                        <a>Belgium</a>
-                        <a>Brazil</a>
-                        <a>Canada</a>
-                        <a>Chile</a>
-                        <a>China</a>
-                        <a>Colombia</a>
-                        <a>Costa Rica</a>
-                        <a>Czechia</a>
-                        <a>Denmark</a>
-                        <a>Finland</a>
-                        <a>France</a>
-                        <a>French Polynesia</a>
-                        <a>Germany</a>
-                        <a>Greece</a>
-                        <a>Hungary</a>
-                        <a>India</a>
-                        <a>Indonesia</a>
-                        <a>Ireland</a>
-                        <a>Italy</a>
-                        <a>Japan</a>
-                        <a>Mexico</a>
-                        <a>Netherlands</a>
-                        <a>Netherlands Antilles</a>
-                        <a>New Caledonia</a>
-                        <a>New Zealand</a>
-                        <a>Norway</a>
-                        <a>Peru</a>
-                        <a>Philippines</a>
-                        <a>Poland</a>
-                        <a>Portugal</a>
-                        <a>Qatar</a>
-                        <a>Romania</a>
-                        <a>Saudi Arabia</a>
-                        <a>Slovakia</a>
-                        <a>South Korea</a>
-                        <a>Spain</a>
-                        <a>Sweden</a>
-                        <a>Switzerland</a>
-                        <a>Taiwan</a>
-                        <a>Thailand</a>
-                        <a>Uk</a>
-                        <a>United Arab Emirates</a>
-                        <a>Usa</a>
-                        </div>
-                    </div> <br>
-                </form>
-                  
-            <button type="submit" name="confirmation" methode="post">Apply filters</button>
+                <div class="link">CreationDate 
+                    <div class="linkfilter">
+                        <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                    </div>
+                </div>
+
+                <div class="link">
+                    <label for="pet-select">Concert Locations</label>
+                    <div class="linkfilter">
+                        <select name="pets" id="pet-select">
+                            <option value="">--Please choose an option--</option>
+                            {{range .Countries}}
+                            <option value={{.}}>{{.}}</option>
+                            {{end}}
+                        </select>
+                    </div>
+                </div>
+                    
+                <button type="submit" name="confirmation" methode="post">Apply filters</button>
+            </form>
         </div>
-    </form>
 
         <div class="nav">
             <input onkeyup="search()" onclick="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />

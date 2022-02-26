@@ -21,6 +21,7 @@ var Countries []string
 type ArtistStruct struct {
 	Tab []Artist
 	S1  []Date
+	Countries []string
 }
 type Loc struct {
 	Index  []Location `json:"index"`
@@ -56,6 +57,7 @@ type Date struct {
 	City    string
 	Country string
 	Datecomp int
+	
 }
 
 func APIRequests() {

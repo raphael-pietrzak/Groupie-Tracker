@@ -4,6 +4,8 @@ import (
 	"fmt"
 	g "groupie"
 	"net/http"
+	"sort"
+
 	// "sort"
 	"strings"
 	// "github.com/gorilla/mux"
@@ -24,15 +26,15 @@ func main() {
 	g.APIRequestsLoc()
 	for _, v := range g.LocationTab {
 		for _, a := range v.Locations {
-			split := strings.Split(a, "-", )
-			c := strings.Title(strings.Replace(split[1],"_", " ", -1))
-			if g.ContainsCountry(g.Countries,c){
+			split := strings.Split(a, "-")
+			c := strings.Title(strings.Replace(split[1], "_", " ", -1))
+			if g.ContainsCountry(g.Countries, c) {
 				g.Countries = append(g.Countries, c)
 			}
 		}
 	}
-	// sort.Strings(g.Countries)
-	// fmt.Println(g.Countries)
+	sort.Strings(g.Countries)
+	fmt.Println(g.Countries)
 
 	//Show #CSS
 	fs := http.FileServer(http.Dir("./static"))

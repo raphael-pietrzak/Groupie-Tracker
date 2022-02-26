@@ -16,7 +16,8 @@ func MainPage(w http.ResponseWriter, r *http.Request) {
 
 	APIRequests()
 
-	new := ArtistStruct{Tab: ArtistTab}
+	fmt.Println(Countries)
+	new := ArtistStruct{Countries: Countries, Tab: ArtistTab}
 
 	// fmt.Println(new)
 	tmpl.Execute(w, new)

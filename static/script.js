@@ -11,14 +11,11 @@ function search() {
     let date = document.getElementsByName("date");
     let nothing = true
 
-    for (i = 0; i < members.length; i++) {
-      console.log(members[i]);
-    }
     document.getElementById("answer").innerHTML = ""
 
     for (i = 0; i < art.length; i++) {
-      console.log(members[i].innerHTML)
-      console.log("----------------------"+i+"--------------------------")
+      // console.log(members[i].innerHTML)
+      // console.log("----------------------"+i+"--------------------------")
       let j = i+1
       if (name[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
           art[i].style.display = 'block';
@@ -36,23 +33,23 @@ function search() {
           art[i].style.display = 'none';
       }
     }
+    console.log(search_input = document.getElementById("searchBar").value)
+    console.log("-------------------------------")
+    console.log(document.getElementById("answer").innerHTML)
     if (search_input == "") {
       document.getElementById("answer").innerHTML = ""
       searchBar[0].style.borderRadius = '70px';
     } else {
       searchBar[0].style.borderRadius = '8px';
     }
+    if (document.getElementById("answer").innerHTML == "") {
+      searchBar[0].style.borderRadius = '70px';
+    }
     if (nothing) {
       document.getElementById("noresult").innerHTML = "We couldn't find any matches for  \"" + search_input + "\"";
     } else {
       document.getElementById("noresult").innerHTML = "";
     }
-}
-
-function searchFilterLoc(){
-  document.getElementById("myDropdownLocations").classList.toggle("show2");
-  document.getElementsByClassName("dropdown-contentLocations")[0].style.display = 'block';
-  
 }
 
 function searchFilter() {
