@@ -55,6 +55,7 @@ type Date struct {
 	Year    string
 	City    string
 	Country string
+	Datecomp int
 }
 
 func APIRequests() {
@@ -93,6 +94,7 @@ func APIRequestsLoc() {
 }
 
 func APIRequests2(link string) {
+	Relation.DatesLoc = map[string][]string{}
 
 	req, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + link)
 

@@ -32,7 +32,6 @@ func main() {
 		}
 	}
 	sort.Strings(g.Countries)
-	fmt.Println(g.Countries)
 
 	//Show #CSS
 	fs := http.FileServer(http.Dir("./static"))

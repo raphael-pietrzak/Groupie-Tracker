@@ -1,15 +1,25 @@
 function search() {
     document.getElementsByClassName("dropdown-content")[0].style.display = 'none';
-    let art = document.getElementsByClassName("button");
+
     let searchBar = document.getElementsByClassName("nav");
     let search_input = document.getElementById("searchBar").value;
+    
+    let art = document.getElementsByClassName("button");
+    
     let name = document.getElementsByName("artistName");
-    let members = document.getElementsByName("members1");
+    let members = document.getElementsByClassName("members1");
+    
     let date = document.getElementsByName("date");
     let nothing = true
+
+    for (i = 0; i < members.length; i++) {
+      console.log(members[i]);
+    }
     document.getElementById("answer").innerHTML = ""
 
     for (i = 0; i < art.length; i++) {
+      console.log(members[i].innerHTML)
+      console.log("----------------------"+i+"--------------------------")
       let j = i+1
       if (name[i].innerHTML.toLowerCase().includes(search_input.toLowerCase())) {
           art[i].style.display = 'block';
@@ -25,7 +35,6 @@ function search() {
           nothing = false;
       } else {
           art[i].style.display = 'none';
-          
       }
     }
     if (search_input == "") {

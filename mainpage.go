@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -29,6 +30,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	checkbox, _ := strconv.Atoi(r.Form.Get("members"))
 	dateCreation, _ := strconv.Atoi(r.Form.Get("slider_DC"))
 	dateAlbum := r.Form.Get("slider_FAD")
+
 	fmt.Println(checkbox)
 	fmt.Println(dateCreation)
 	fmt.Println(dateAlbum)
@@ -41,7 +43,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 				temp_artistTab = append(temp_artistTab, v)
 			}
 
-		new_artistTab = temp_artistTab
+			new_artistTab = temp_artistTab
 		}
 		// split := strings.Split(v.FirstAlbum, "-")
 		// aza := split[2]
@@ -67,7 +69,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	}
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
-	
+
 }
 
 func ContainsCountry(testvar []string, str string) bool {
@@ -78,7 +80,6 @@ func ContainsCountry(testvar []string, str string) bool {
 	}
 	return true
 }
-
 
 // func containsCountry(testvar []string, str string) bool {
 // 	for _, v := range testvar {
@@ -102,10 +103,9 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 	APIRequests2(link_loc)
 	DataRelation := []Date{}
 	var DRelation Relationnement
-	fmt.Println(DataRelation)
-	
 	month := []string{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
 	for k, v := range Relation.DatesLoc {
+		fmt.Println(k)
 		a := Date{}
 		split := strings.Split(k, "-")
 		city := strings.Title((strings.Replace(split[0], "_", " ", -1)))
@@ -116,11 +116,31 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 			a.Day = splitdate[0]
 			a.Month = month[m-1]
 			a.Year = splitdate[2]
+			a.Datecomp, _ = strconv.Atoi(splitdate[2]+splitdate[1]+splitdate[0])
 			a.City = city
 			a.Country = country
 			DataRelation = append(DataRelation, a)
 		}
 	}
+	fmt.Println("----------------------------------------------")
 	DRelation.Id, _ = strconv.Atoi(link_loc)
+
+	
+	
+	sort.Sort(empeo(DataRelation))
 	tmpl.Execute(w, ArtistStruct{S1: DataRelation, Tab: []Artist{Artists}})
+}
+
+type empeo []Date
+
+func (e empeo) Len() int {
+	return len(e)
+}
+
+func (e empeo) Less(i, j int) bool {
+	return e[i].Datecomp < e[j].Datecomp
+}
+
+func (e empeo) Swap(i, j int) {
+	e[i], e[j] = e[j], e[i]
 }

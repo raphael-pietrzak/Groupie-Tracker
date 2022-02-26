@@ -16,45 +16,45 @@
         <button onclick="searchFilter()" class="dropbtn">Filters</button>
         <div id="myDropdown" class="dropdown-content">
     
-    <form method="post" action="/filter">
-            <a>Members
-                <input type="checkbox" value="1" id="idMembers1" name="members" class="style_members">
-                <label for="1">1</label>
-                <input type="checkbox" value="2" id="idMembers2" name="members">
-                <label for="2">2</label>
-                <input type="checkbox" value="3" id="idMembers3" name="members">
-                <label for="3">3</label>
-                <input type="checkbox" value="4" id="idMembers4" name="members">
-                <label for="4">4</label>
-                <input type="checkbox" value="5" id="idMembers5" name="members">
-                <label for="5">5</label>
-                <input type="checkbox" value="6" id="idMembers6" name="members">
-                <label for="6">6</label>
-                <input type="checkbox" value="7" id="idMembers7" name="members">
-                <label for="7">7</label>
-                <input type="checkbox" value="8" id="idMembers8" name="members">
-                <label for="8">8</label>
-            </a>
-             
-                <div class="options2"> 
-                    <a>Creation Date
-                    <input class="slider_DC" name="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
-                    </a>
-                </div>
+        <form method="post" action="/filter">
+                <a>Members
+                    <input type="checkbox" value="1" id="idMembers1" name="members" class="style_members">
+                    <label for="1">1</label>
+                    <input type="checkbox" value="2" id="idMembers2" name="members">
+                    <label for="2">2</label>
+                    <input type="checkbox" value="3" id="idMembers3" name="members">
+                    <label for="3">3</label>
+                    <input type="checkbox" value="4" id="idMembers4" name="members">
+                    <label for="4">4</label>
+                    <input type="checkbox" value="5" id="idMembers5" name="members">
+                    <label for="5">5</label>
+                    <input type="checkbox" value="6" id="idMembers6" name="members">
+                    <label for="6">6</label>
+                    <input type="checkbox" value="7" id="idMembers7" name="members">
+                    <label for="7">7</label>
+                    <input type="checkbox" value="8" id="idMembers8" name="members">
+                    <label for="8">8</label>
+                </a>
                 
-                <div class="options"> 
-                    <a>First Album Date 
-                    <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
-                    </a>
-                </div>
-            <button onclick="searchFilterLoc()" class="dropbtnLocations">Concert Locations</button>
-            <div id="myDropdownLocations" class="dropdown-contentLocations">
-                <a> Test1</a>
-                <a> Test2</a>
-            </div> <br>
-            <button type="submit" name="confirmation" methode="post">Apply filters</button>
-        </div>
-    </form>
+                    <div class="options2"> 
+                        <a>Creation Date
+                        <input class="slider_DC" name="slider_DC" type="range" min="1958" max="2015" step="1" list="steplist" id="dateCreation">
+                        </a>
+                    </div>
+                    
+                    <div class="options"> 
+                        <a>First Album Date 
+                        <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                        </a>
+                    </div>
+                <button onclick="searchFilterLoc()" class="dropbtnLocations">Concert Locations</button>
+                <div id="myDropdownLocations" class="dropdown-contentLocations">
+                    <a> Test1</a>
+                    <a> Test2</a>
+                </div> <br>
+                <button type="submit" name="confirmation" methode="post">Apply filters</button>
+            </div>
+        </form>
 
         <div class="nav">
             <input onkeyup="search()" onclick="search()" class="searchBar" id="searchBar" type="text" placeholder="Search" />
@@ -71,16 +71,19 @@
             <form action="/artist" class="button">
                 <button type="submit" value={{.Id}} name="w" method="post" class="btn">
                     <div class="card">
-                        <p name="animation">
-                            <img src="{{ .Image }}" class="image">
-                            <div class="name">
+                        <img src="{{ .Image }}" class="image">
+                        <div class="name">
                             <h1 name="artistName"> {{.Name}} </h1>
                         </div>
                         <div class="para"> 
-                            {{range .Members}}
-                            <p name="members1" >{{ . }}</p> 
-                            {{ end }}
+                            <div class="members2">
+                                {{range .Members}}
+                                <p class="members1" >{{ . }}</p> 
+                                {{ end }}
+                            </div>
+                            
                             <p name="date" class="date" >{{.CreationDate }}</p>
+                            <p class="idcard"> .Id </p>
                         </div>
                         </p>
                     </div>
