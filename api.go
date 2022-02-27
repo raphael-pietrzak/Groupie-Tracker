@@ -14,7 +14,6 @@ var CountryList []string
 var ArtistTab []Artist
 var DatesLocations DatesLoc
 
-var aaaa [][]string
 
 type ArtistStruct struct {
 	Tab     []Artist
@@ -79,8 +78,6 @@ func APIRequests() {
 		}
 
 	}
-	fmt.Print("[")
-
 }
 
 func ContainsCountry(testvar []string, str string) bool {

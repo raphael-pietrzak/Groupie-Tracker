@@ -57,18 +57,3 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// sort.Sort(empeo(DataRelation))
-
-type empeo []Date
-
-func (e empeo) Len() int {
-	return len(e)
-}
-
-func (e empeo) Less(i, j int) bool {
-	return e[i].Datecomp < e[j].Datecomp
-}
-
-func (e empeo) Swap(i, j int) {
-	e[i], e[j] = e[j], e[i]
-}
