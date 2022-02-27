@@ -28,46 +28,68 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	}
 	checkbox, _ := strconv.Atoi(r.Form.Get("members"))
 	dateCreation, _ := strconv.Atoi(r.Form.Get("slider_DC"))
-	dateAlbum := r.Form.Get("slider_FAD")
+	dateAlbum:= r.Form.Get("slider_FAD")
 	fmt.Println(checkbox)
 	fmt.Println(dateCreation)
 	fmt.Println(dateAlbum)
 
 	var new_artistTab = ArtistTab
+	var temp_artistTab []Artist
+
 	if checkbox != 0 {
-		var temp_artistTab []Artist
 		for _, v := range new_artistTab {
 			if len(v.Members) == checkbox {
 				temp_artistTab = append(temp_artistTab, v)
 			}
-
-		new_artistTab = temp_artistTab
+			new_artistTab = temp_artistTab
 		}
-		// split := strings.Split(v.FirstAlbum, "-")
-		// aza := split[2]
-		// if checkbox != 0 {
-		// 	if dateCreation != 1987 {
-		// 		if len(v.Members) == checkbox && v.CreationDate >= dateCreation {
-		// 			new_artistTab = append(new_artistTab, v)
-		// 		} else {
-		// 			if v.FirstAlbum == dateAlbum {
-		// 				new_artistTab = append(new_artistTab, v)
-		// 			}
-		// 		}
-		// 	} else {
-		// 		if len(v.Members) >= checkbox {
-		// 			new_artistTab = append(new_artistTab, v)
-		// 		}
-		// 	}
-		// } else {
-		// 	if v.CreationDate >= dateCreation {
-		// 		new_artistTab = append(new_artistTab, v)
-		// 	}
-		// }
 	}
+
+	if dateCreation < 10000 {
+		for _, i := range new_artistTab {
+			if i.CreationDate <= dateCreation {
+				temp_artistTab = append(temp_artistTab, i)
+			}
+		}
+		new_artistTab = temp_artistTab
+	}
+
+	if true {
+		for _, a := range new_artistTab {
+			split := strings.Split(a.FirstAlbum, "-")
+			dateAlbum_split := split[2]
+			if dateAlbum_split == dateAlbum {
+				temp_artistTab = append(temp_artistTab, a)
+			}
+		}
+		new_artistTab = temp_artistTab
+	}
+
+	// for _, v := range new_artistTab {
+	// 	// split := strings.Split(v.FirstAlbum, "-")
+	// 	// aza := split[2]
+	// 	if checkbox != 0 {
+	// 		if dateCreation != 1987 {
+	// 			if len(v.Members) == checkbox && v.CreationDate >= dateCreation {
+	// 				new_artistTab = append(new_artistTab, v)
+	// 			} else {
+	// 				if v.FirstAlbum == dateAlbum {
+	// 					new_artistTab = append(new_artistTab, v)
+	// 				}
+	// 			}
+	// 		} else {
+	// 			if len(v.Members) >= checkbox {
+	// 				new_artistTab = append(new_artistTab, v)
+	// 			}
+	// 		}
+	// 	} else {
+	// 		if v.CreationDate >= dateCreation {
+	// 			new_artistTab = append(new_artistTab, v)
+	// 		}
+	// 	}
+	// }
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
-	
 }
 
 func ContainsCountry(testvar []string, str string) bool {
@@ -78,7 +100,6 @@ func ContainsCountry(testvar []string, str string) bool {
 	}
 	return true
 }
-
 
 // func containsCountry(testvar []string, str string) bool {
 // 	for _, v := range testvar {
