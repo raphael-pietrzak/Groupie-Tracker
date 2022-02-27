@@ -274,3 +274,8 @@ body{
   border-radius: 5px;
   background-color: white;
 }
+.linkfilter input[type=range] {
+  position: absolute;
+  right: 0;
+  width: 250px;
+}

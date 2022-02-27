@@ -40,20 +40,20 @@
                 
                 <div class="link">First Album Date 
                     <div class="linkfilter">
-                        <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                        <input name="FAD" class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
                     </div>
                 </div>
 
                 <div class="link">Creation Date 
                     <div class="linkfilter">
-                        <input class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                        <input name="DC" class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
                     </div>
                 </div>
 
                 <div class="link">
                     <label for="pet-select">Concert Locations</label>
                     <div class="linkfilter">
-                        <select class="countrieschoice">
+                        <select class="countrieschoice" name="country">
                             <option value="">None</option>
                             {{range .Countries}}
                             <option value={{.}}>{{.}}</option>
@@ -63,9 +63,8 @@
                 </div>
                 
                 <div class="link" >
-                    <button type="submit" class="applyfilter" methode="post">Apply</button>
+                    <button type="submit" class="applyfilter" method="post">Apply</button>
                 </div>
-
             </form>
         </div>
 
