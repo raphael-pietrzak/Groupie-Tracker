@@ -282,3 +282,6 @@ body{
   margin-right: 10px;
   font-size: 20px;
 }
+.home{
+  display: inline-block;
+}
