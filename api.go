@@ -55,7 +55,7 @@ func APIRequests() {
 	month := []string{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
 
 	for k := range ArtistTab {
-		n := strconv.Itoa(k)
+		n := strconv.Itoa(k+1)
 		DatesLocations := DatesLoc{}
 		req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + n)
 		locations, _ := ioutil.ReadAll(req2.Body)
@@ -86,4 +86,13 @@ func ContainsCountry(testvar []string, str string) bool {
 		}
 	}
 	return true
+}
+
+func ContainsCountry2(testvar []Location, str string) bool {
+	for _, v := range testvar {
+		if v.Country == str {
+			return true
+		}
+	}
+	return false
 }
