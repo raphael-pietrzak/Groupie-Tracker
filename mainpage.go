@@ -26,7 +26,7 @@ func Artiste(w http.ResponseWriter, r *http.Request) {
 
 	Id_Artit, _ := strconv.Atoi(r.Form.Get("w"))
 
-	tmpl.Execute(w, ArtistTab[Id_Artit])
+	tmpl.Execute(w, ArtistTab[Id_Artit-1])
 }
 
 func Filter(w http.ResponseWriter, r *http.Request) {
@@ -37,7 +37,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	}
 
 	checkbox, _ := strconv.Atoi(r.Form.Get("members"))
-	dateCreation,_ := strconv.Atoi(r.Form.Get("DC"))
+	dateCreation, _ := strconv.Atoi(r.Form.Get("DC"))
 	dateAlbum := r.Form.Get("FAD")
 	countrySelection := r.Form.Get("country")
 
@@ -54,7 +54,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	var temp_artistTab []Artist
 	for _, v := range new_artistTab {
 
-		if (len(v.Members) == checkbox || checkbox == 0) && (v.CreationDate == dateCreation || dateCreation == 1991) && (v.FirstAlbum[7:] == dateAlbum || dateAlbum == "1991") {
+		if (len(v.Members) == checkbox || checkbox == 0) && (v.CreationDate == dateCreation || dateCreation == 1991) && (v.FirstAlbum[7:] == dateAlbum || dateAlbum == "1991") && (ContainsCountry2(v.Concerts, countrySelection) || countrySelection == "") {
 			temp_artistTab = append(temp_artistTab, v)
 		}
 
