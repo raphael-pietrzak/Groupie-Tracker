@@ -2,7 +2,6 @@ package groupie
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -13,7 +12,6 @@ var Artists Artist
 var CountryList []string
 var ArtistTab []Artist
 var DatesLocations DatesLoc
-
 
 type ArtistStruct struct {
 	Tab     []Artist
