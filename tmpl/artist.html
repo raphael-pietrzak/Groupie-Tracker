@@ -17,19 +17,17 @@
         </form>
     </div>
     <div class="head">
-        {{range .Tab}}
         <img src="{{.Image}}" alt="cover" class="img">
         <h1 class="title">{{.Name}}</h1>
-        {{end}}
     </div>
     <div class=main>
         <div class="concerts">
-            {{range .S1}}
+            {{range .Concerts}}
             <div class="dateloc">
                 <div class="date">
-                    <p  class="month"> {{ .Month }} </p>
-                    <p  class="day"> {{ .Day }} </p>
-                    <p  class="year"> {{ .Year }} </p>
+                    <p  class="month"> {{ .Date.Month }} </p>
+                    <p  class="day"> {{ .Date.Day }} </p>
+                    <p  class="year"> {{ .Date.Year }} </p>
                 </div>
                 <div class="loc">
                     <p >{{ .City }} </p>
@@ -39,7 +37,6 @@
             {{end}}
         </div>
         <div class="infos">
-            {{range .Tab}}
             <div class = "members">
                 <h2>Members</h2>
                 {{ range .Members}}
@@ -54,7 +51,6 @@
                <h2>First Album</h2>
             {{.FirstAlbum}} 
            </div>
-            {{end}}
         </div>
     </div>
 </body>

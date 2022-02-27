@@ -1,36 +1,22 @@
 package groupie
 
 import (
-	// "context"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
+	"sort"
+	"strconv"
+	"strings"
 )
 
-// Variables Globales
-var Relation Relationnement
 var Artists Artist
+var CountryList []string
 var ArtistTab []Artist
-var LocationTab []Location
-var L Loc
-var variable map[string][]string
-var tableau []ArtistStruct
-var Countries []string
+var DatesLocations DatesLoc
 
 type ArtistStruct struct {
-	Tab []Artist
-	S1  []Date
-	Countries []string
-}
-type Loc struct {
-	Index  []Location `json:"index"`
-}
-
-type Location struct {
-	Id        int      `json:"id"`
-	Locations []string `json:"locations"`
-	Dates     string   `json:"dates"`
+	Tab     []Artist
+	Country []string
 }
 
 type Artist struct {
@@ -40,72 +26,64 @@ type Artist struct {
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationDate"`
 	FirstAlbum   string   `json:"firstAlbum"`
-	Locations    string   `json:"locations"`
-	Dates        string   `json:"dates"`
-	Relations    string   `json:"relations"`
+	Concerts     []Location
 }
 
-type Relationnement struct {
-	Id       int                 `json:"id"`
+type DatesLoc struct {
 	DatesLoc map[string][]string `json:"datesLocations"`
 }
 
-type Date struct {
-	Day     string
-	Month   string
-	Year    string
+type Location struct {
 	City    string
 	Country string
+	Date    Date
+}
+
+type Date struct {
+	Day      string
+	Month    string
+	Year     string
 	Datecomp int
-	
 }
 
 func APIRequests() {
 
-	req, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+	req, _ := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+	artists, _ := ioutil.ReadAll(req.Body)
+	json.Unmarshal(artists, &ArtistTab)
 
-	if err != nil {
-		fmt.Println(err)
+	month := []string{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
+
+	for k := range ArtistTab {
+		n := strconv.Itoa(k)
+		DatesLocations := DatesLoc{}
+		req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + n)
+		locations, _ := ioutil.ReadAll(req2.Body)
+		json.Unmarshal(locations, &DatesLocations)
+		for key, value := range DatesLocations.DatesLoc {
+			splitloc := strings.Split(key, "-")
+			city := strings.Title((strings.Replace(splitloc[0], "_", " ", -1)))
+			country := strings.Title((strings.Replace(splitloc[1], "_", " ", -1)))
+			for _, i := range value {
+				splitdate := strings.Split(i, "-")
+				m, _ := strconv.Atoi(splitdate[1])
+				datecomp, _ := strconv.Atoi(splitdate[2] + splitdate[1] + splitdate[0])
+				ArtistTab[k].Concerts = append(ArtistTab[k].Concerts, Location{City: city, Country: country, Date: Date{Day: splitdate[0], Month: month[m-1], Year: splitdate[2], Datecomp: datecomp}})
+			}
+			if ContainsCountry(CountryList, country) {
+				CountryList = append(CountryList, country)
+			}
+		}
+
 	}
-
-	d, err2 := ioutil.ReadAll(req.Body)
-
-	if err2 != nil {
-		fmt.Println(err2)
-	}
-
-	json.Unmarshal(d, &ArtistTab)
+	sort.Strings(CountryList)
 }
 
-func APIRequestsLoc() {
-
-	req, err := http.Get("https://groupietrackers.herokuapp.com/api/locations")
-
-	if err != nil {
-		fmt.Println(err)
+func ContainsCountry(testvar []string, str string) bool {
+	for _, v := range testvar {
+		if v == str {
+			return false
+		}
 	}
-
-	d3, err2 := ioutil.ReadAll(req.Body)
-
-	if err2 != nil {
-		fmt.Println(err2)
-	}
-
-	json.Unmarshal(d3, &L)
-	LocationTab = L.Index
-}
-
-func APIRequests2(link string) {
-	Relation.DatesLoc = map[string][]string{}
-
-	req, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + link)
-
-	d1, _ := ioutil.ReadAll(req.Body)
-	req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/artists/" + link)
-
-	d2, _ := ioutil.ReadAll(req2.Body)
-
-	json.Unmarshal(d1, &Relation)
-	json.Unmarshal(d2, &Artists)
-
+	return true
 }
