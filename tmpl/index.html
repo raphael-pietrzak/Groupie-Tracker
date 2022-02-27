@@ -55,7 +55,7 @@
                     <div class="linkfilter">
                         <select class="countrieschoice" name="country">
                             <option value="">None</option>
-                            {{range .Countries}}
+                            {{range .Country}}
                             <option value={{.}}>{{.}}</option>
                             {{end}}
                         </select>
@@ -88,16 +88,11 @@
                             <h1 name="artistName"> {{.Name}} </h1>
                         </div>
                         <div class="para"> 
-                            <div class="members2">
-                                {{range .Members}}
-                                <p class="members1" >{{ . }}</p> 
-                                {{ end }}
-                            </div>
-                            
-                            <p name="date" class="date" >{{.CreationDate }}</p>
-                            <p class="idcard"> .Id </p>
+                            {{range .Members}}
+                            <p class="members1" >{{ . }}</p> 
+                            {{ end }}
+                            <p name="date" class="date" >{{ .CreationDate }}</p>
                         </div>
-                        </p>
                     </div>
                 </button>
             </form>
