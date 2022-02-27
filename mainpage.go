@@ -57,20 +57,10 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 		if (len(v.Members) == checkbox || checkbox == 0) && (v.CreationDate == dateCreation || dateCreation == 1991) && (v.FirstAlbum[7:] == dateAlbum || dateAlbum == "1991") && (ContainsCountry2(v.Concerts, countrySelection) || countrySelection == "") {
 			temp_artistTab = append(temp_artistTab, v)
 		}
-	}
-
-	if dateCreation < 10000 {
-		for _, i := range new_artistTab {
-			if i.CreationDate <= dateCreation {
-				temp_artistTab = append(temp_artistTab, i)
-			}
-		}
 		new_artistTab = temp_artistTab
 	}
-
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
 	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
-
 }
 
 // sort.Sort(empeo(DataRelation))
