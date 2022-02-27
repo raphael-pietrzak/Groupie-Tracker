@@ -94,3 +94,12 @@ func ContainsCountry2(testvar []Location, str string) bool {
 	}
 	return false
 }
+
+func NumMembers(testvar []int, i int) bool {
+	for _, v := range testvar {
+		if v == i {
+			return true
+		}
+	}
+	return false
+}
