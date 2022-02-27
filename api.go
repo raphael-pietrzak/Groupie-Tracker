@@ -56,7 +56,6 @@ func APIRequests() {
 	month := []string{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
 
 	for k := range ArtistTab {
-		aaaa = append(aaaa, ArtistTab[k].Members)
 		n := strconv.Itoa(k + 1)
 		DatesLocations := DatesLoc{}
 		req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + n)
