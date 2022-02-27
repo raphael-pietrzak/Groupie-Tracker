@@ -21,6 +21,7 @@ var Countries []string
 type ArtistStruct struct {
 	Tab []Artist
 	S1  []Date
+	Countries []string
 }
 type Loc struct {
 	Index  []Location `json:"index"`
@@ -55,6 +56,8 @@ type Date struct {
 	Year    string
 	City    string
 	Country string
+	Datecomp int
+	
 }
 
 func APIRequests() {
@@ -93,6 +96,7 @@ func APIRequestsLoc() {
 }
 
 func APIRequests2(link string) {
+	Relation.DatesLoc = map[string][]string{}
 
 	req, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + link)
 
