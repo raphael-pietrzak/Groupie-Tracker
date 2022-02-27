@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="link">Creation Date 
-                    <div class="linkfilter">
+                    <div class="linkfilter" >
                         <input name="DC" class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
                     </div>
                 </div>
@@ -88,9 +88,11 @@
                             <h1 name="artistName"> {{.Name}} </h1>
                         </div>
                         <div class="para"> 
-                            {{range .Members}}
-                            <p class="members1" >{{ . }}</p> 
-                            {{ end }}
+                            <div class="groupmembers">
+                                {{range .Members}}
+                                <p name="members" >{{ . }}</p> 
+                                {{ end }}
+                            </div>
                             <p name="date" class="date" >{{ .CreationDate }}</p>
                         </div>
                     </div>

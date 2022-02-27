@@ -41,15 +41,6 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	dateAlbum := r.Form.Get("FAD")
 	countrySelection := r.Form.Get("country")
 
-	fmt.Println("checkbox")
-	fmt.Println(checkbox)
-	fmt.Println("dateCreation")
-	fmt.Println(dateCreation)
-	fmt.Println("dateAlbum")
-	fmt.Println(dateAlbum)
-	fmt.Println("countrySelection")
-	fmt.Println(countrySelection)
-
 	var new_artistTab = ArtistTab
 	var temp_artistTab []Artist
 	for _, v := range new_artistTab {
@@ -62,7 +53,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	}
 
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
-	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
+	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab, Country: CountryList})
 
 }
 
