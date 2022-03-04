@@ -35,8 +35,14 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "ParseForm() err: %v", err)
 		return
 	}
-
-	checkbox, _ := strconv.Atoi(r.Form.Get("members"))
+	checkbox := []int{}
+	for i := 0; i < 8; i++ {
+		
+		a,_ := strconv.Atoi(r.Form.Get("members"+strconv.Itoa(i)))
+		if a != 0{
+			checkbox = append(checkbox, a)
+		}
+	}
 	dateCreation, _ := strconv.Atoi(r.Form.Get("DC"))
 	dateAlbum := r.Form.Get("FAD")
 	countrySelection := r.Form.Get("country")
@@ -44,8 +50,7 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	var new_artistTab = ArtistTab
 	var temp_artistTab []Artist
 	for _, v := range new_artistTab {
-
-		if (len(v.Members) == checkbox || checkbox == 0) && (v.CreationDate == dateCreation || dateCreation == 1991) && (v.FirstAlbum[6:] == dateAlbum || dateAlbum == "1991") && (ContainsCountry2(v.Concerts, countrySelection) || countrySelection == "") {
+		if (NumMembers(checkbox,len(v.Members)) || len(checkbox)==0) && (v.CreationDate == dateCreation || dateCreation == 1974) && (v.FirstAlbum[6:] == dateAlbum || dateAlbum == "1974") && (ContainsCountry2(v.Concerts, countrySelection) || countrySelection == "") {
 			temp_artistTab = append(temp_artistTab, v)
 		}
 		new_artistTab = temp_artistTab
@@ -55,18 +60,3 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// sort.Sort(empeo(DataRelation))
-
-type empeo []Date
-
-func (e empeo) Len() int {
-	return len(e)
-}
-
-func (e empeo) Less(i, j int) bool {
-	return e[i].Datecomp < e[j].Datecomp
-}
-
-func (e empeo) Swap(i, j int) {
-	e[i], e[j] = e[j], e[i]
-}

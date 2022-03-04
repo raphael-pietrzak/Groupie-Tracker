@@ -2,7 +2,6 @@ package groupie
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -13,8 +12,6 @@ var Artists Artist
 var CountryList []string
 var ArtistTab []Artist
 var DatesLocations DatesLoc
-
-var aaaa [][]string
 
 type ArtistStruct struct {
 	Tab     []Artist
@@ -57,7 +54,6 @@ func APIRequests() {
 	month := []string{"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"}
 
 	for k := range ArtistTab {
-		aaaa = append(aaaa, ArtistTab[k].Members)
 		n := strconv.Itoa(k + 1)
 		DatesLocations := DatesLoc{}
 		req2, _ := http.Get("https://groupietrackers.herokuapp.com/api/relation/" + n)
@@ -79,8 +75,6 @@ func APIRequests() {
 		}
 
 	}
-	fmt.Print("[")
-
 }
 
 func ContainsCountry(testvar []string, str string) bool {
@@ -95,6 +89,15 @@ func ContainsCountry(testvar []string, str string) bool {
 func ContainsCountry2(testvar []Location, str string) bool {
 	for _, v := range testvar {
 		if v.Country == str {
+			return true
+		}
+	}
+	return false
+}
+
+func NumMembers(testvar []int, i int) bool {
+	for _, v := range testvar {
+		if v == i {
 			return true
 		}
 	}
