@@ -13,6 +13,9 @@
 
 <body>
     <div class="filter">
+        <form class="home" action="/" method="post">
+            <button class="dropbtn" >Home</button>
+        </form>
         <button onclick="searchFilter()" class="dropbtn">Filters</button>
 
         <div id="myDropdown" class="dropdown-content">
@@ -40,15 +43,36 @@
                 
                 <div class="link">First Album Date 
                     <div class="linkfilter">
-                        <input name="FAD" class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                        <input name="FAD" class="slider_FAD" type="range" min="1963" max="2018" step="1" id="FirstAlb2" >
                     </div>
+                    <span id="demo2" class="spanning"></span>
                 </div>
 
                 <div class="link">Creation Date 
-                    <div class="linkfilter">
-                        <input name="DC" class="slider_FAD" type="range" min="1963" max="2018" step="1" list="steplist" id="FirstAlb">
+                    <div class="linkfilter" >
+                        <input name="DC" class="slider_FAD" type="range" min="1963" max="2018" step="1" id="FirstAlb">
+
                     </div>
+                    <span id="demo"class="spanning"></span>
+
                 </div>
+                
+                <script>
+                var slider = document.getElementById("FirstAlb");
+                var output = document.getElementById("demo");
+                output.innerHTML = slider.value;
+                
+                slider.oninput = function() {
+                  output.innerHTML = this.value;
+                }
+                var slider2 = document.getElementById("FirstAlb2");
+                var output2 = document.getElementById("demo2");
+                output2.innerHTML = slider.value;
+                
+                slider2.oninput = function() {
+                  output2.innerHTML = this.value;
+                }
+                </script>
 
                 <div class="link">
                     <label for="pet-select">Concert Locations</label>
@@ -88,9 +112,11 @@
                             <h1 name="artistName"> {{.Name}} </h1>
                         </div>
                         <div class="para"> 
-                            {{range .Members}}
-                            <p class="members1" >{{ . }}</p> 
-                            {{ end }}
+                            <div class="groupmembers">
+                                {{range .Members}}
+                                <p name="members" >{{ . }}</p> 
+                                {{ end }}
+                            </div>
                             <p name="date" class="date" >{{ .CreationDate }}</p>
                         </div>
                     </div>

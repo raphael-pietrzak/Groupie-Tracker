@@ -41,26 +41,18 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	dateAlbum := r.Form.Get("FAD")
 	countrySelection := r.Form.Get("country")
 
-	fmt.Println("checkbox")
-	fmt.Println(checkbox)
-	fmt.Println("dateCreation")
-	fmt.Println(dateCreation)
-	fmt.Println("dateAlbum")
-	fmt.Println(dateAlbum)
-	fmt.Println("countrySelection")
-	fmt.Println(countrySelection)
-
 	var new_artistTab = ArtistTab
 	var temp_artistTab []Artist
 	for _, v := range new_artistTab {
 
-		if (len(v.Members) == checkbox || checkbox == 0) && (v.CreationDate == dateCreation || dateCreation == 1991) && (v.FirstAlbum[7:] == dateAlbum || dateAlbum == "1991") && (ContainsCountry2(v.Concerts, countrySelection) || countrySelection == "") {
+		if (len(v.Members) == checkbox || checkbox == 0) && (v.CreationDate == dateCreation || dateCreation == 1991) && (v.FirstAlbum[6:] == dateAlbum || dateAlbum == "1991") && (ContainsCountry2(v.Concerts, countrySelection) || countrySelection == "") {
 			temp_artistTab = append(temp_artistTab, v)
 		}
 		new_artistTab = temp_artistTab
 	}
 	tmpl := template.Must(template.ParseFiles("tmpl/index.html"))
-	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab})
+	tmpl.Execute(w, ArtistStruct{Tab: new_artistTab, Country: CountryList})
+
 }
 
 // sort.Sort(empeo(DataRelation))

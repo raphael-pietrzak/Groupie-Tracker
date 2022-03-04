@@ -4,12 +4,10 @@ body{
 }
 
 .slider_FAD {
-  width: 250px;
   cursor: grab;
 }
 
 .slider_DC {
-  width: 250px;
   cursor: grab;
 }
 
@@ -251,6 +249,7 @@ body{
 .linkfilter {
   float: right;
   margin: 0;
+  font-size: 20px;
 }
 /* .linkfilter label{
   font-size: 20px;
@@ -261,7 +260,7 @@ body{
 } */
 
 .countrieschoice{
-  width: 250px;
+  width: 260px;
   height: 30px;
   border-radius: 5px;
   outline: none;
@@ -275,7 +274,14 @@ body{
   background-color: white;
 }
 .linkfilter input[type=range] {
-  position: absolute;
-  right: 0;
-  width: 250px;
+  margin: 0;
+  width: 200px;
+}
+.spanning{
+  float: right;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.home{
+  display: inline-block;
 }
