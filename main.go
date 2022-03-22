@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	g "groupie"
+	g "groupie/groupie"
 	"net/http"
 )
 
 func main() {
+
 	g.APIRequests()
 
 	http.HandleFunc("/", g.MainPage)
@@ -19,4 +20,5 @@ func main() {
 
 	fmt.Println("Listening at http://localhost:5500")
 	http.ListenAndServe("localhost:5500", nil)
+
 }
