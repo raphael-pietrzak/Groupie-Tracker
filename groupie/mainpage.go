@@ -54,7 +54,6 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 		if (NumMembers(checkbox,len(v.Members)) || len(checkbox)==0) && (v.CreationDate == dateCreation || dateCreation == 1974) && (v.FirstAlbum[6:] == dateAlbum || dateAlbum == "1974") && ( ContainsCountrymusk(v.Concerts, countrySelection) || countrySelection == "" ) {
 			temp_artistTab = append(temp_artistTab, v)
 		}
-
 		new_artistTab = temp_artistTab
 	}
 
