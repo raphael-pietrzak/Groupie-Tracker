@@ -15,8 +15,8 @@ func main() {
 	http.HandleFunc("/filter", g.Filter)
 
 	//Show #CSS
-	fs := http.FileServer(http.Dir("./static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	fs := http.FileServer(http.Dir("./groupie/static"))
+	http.Handle("/groupie/static/", http.StripPrefix("/groupie/static/", fs))
 
 	fmt.Println("Listening at http://localhost:5500")
 	http.ListenAndServe("localhost:5500", nil)
